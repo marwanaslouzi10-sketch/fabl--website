@@ -3,47 +3,48 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>FABL ROBLOX LEAGUE</title>
 
 <style>
+*{box-sizing:border-box}
+
 body{
     margin:0;
     font-family:Arial,sans-serif;
-    background:#fff;
+    background:#f5f5f5;
     color:#111;
 }
 
 header{
+    background:#111;
+    color:white;
     text-align:center;
-    padding:30px 15px;
-    border-bottom:1px solid #ddd;
+    padding:28px 15px;
 }
 
 .logo{
-    width:100px;
-    height:100px;
+    width:90px;
+    height:90px;
     object-fit:cover;
     border-radius:50%;
 }
 
-h1{
-    margin:15px 0 5px;
+header h1{
+    margin:12px 0 5px;
 }
 
-.subtitle{
-    color:#777;
+header p{
+    margin:0;
+    color:#bbb;
 }
 
 .container{
     max-width:900px;
     margin:auto;
-    padding:35px 15px;
+    padding:30px 15px;
 }
 
-h2{
-    text-align:center;
-}
+h2{text-align:center}
 
 .matches{
     display:grid;
@@ -52,8 +53,9 @@ h2{
 }
 
 .match{
+    background:white;
     border:1px solid #ddd;
-    border-radius:12px;
+    border-radius:14px;
     padding:25px;
     text-align:center;
 }
@@ -64,112 +66,231 @@ h2{
 }
 
 .teams{
-    font-size:23px;
+    font-size:24px;
     font-weight:bold;
-    margin:18px 0;
-}
-
-.vs{
-    color:#777;
-    margin:0 10px;
+    margin:15px 0;
 }
 
 .time{
     font-weight:bold;
+    margin-bottom:8px;
+}
+
+.stadium{
+    color:#666;
     margin-bottom:18px;
 }
 
-.ticket-button{
+button{
+    border:0;
     background:#111;
     color:white;
-    border:0;
-    padding:11px 20px;
-    border-radius:7px;
-    cursor:pointer;
+    padding:12px 20px;
+    border-radius:8px;
     font-weight:bold;
+    cursor:pointer;
+}
+
+/* FORM */
+
+.overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:#000b;
+    justify-content:center;
+    align-items:center;
+    padding:15px;
+    z-index:10;
+}
+
+.overlay.show{
+    display:flex;
+}
+
+.form-box{
+    background:white;
+    width:100%;
+    max-width:430px;
+    border-radius:15px;
+    padding:25px;
+}
+
+.form-box h2{
+    margin-top:0;
+}
+
+label{
+    display:block;
+    margin-top:14px;
+    font-weight:bold;
+}
+
+input,select{
+    width:100%;
+    padding:12px;
+    margin-top:7px;
+    border:1px solid #ccc;
+    border-radius:7px;
+    font-size:15px;
+}
+
+.generate{
+    width:100%;
+    margin-top:22px;
+}
+
+.cancel{
+    width:100%;
+    margin-top:10px;
+    background:#ddd;
+    color:#111;
 }
 
 /* TICKET */
 
-.modal{
+.ticket-overlay{
     display:none;
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,.65);
-    align-items:center;
+    background:#000c;
     justify-content:center;
-    padding:20px;
+    align-items:center;
+    padding:15px;
+    overflow:auto;
+    z-index:20;
 }
 
-.modal.show{
+.ticket-overlay.show{
     display:flex;
 }
 
 .ticket{
     width:100%;
-    max-width:380px;
+    max-width:700px;
     background:white;
-    border-radius:15px;
+    border-radius:18px;
     overflow:hidden;
-    box-shadow:0 15px 50px #0005;
+    box-shadow:0 20px 60px #0008;
 }
 
-.ticket-header{
+.ticket-top{
     background:#111;
     color:white;
-    text-align:center;
-    padding:20px;
+    padding:22px;
+    display:flex;
+    align-items:center;
+    gap:15px;
 }
 
 .ticket-logo{
     width:65px;
     height:65px;
-    object-fit:cover;
     border-radius:50%;
+    object-fit:cover;
 }
 
-.ticket-body{
-    padding:25px;
+.ticket-top h2{
+    margin:0;
+    text-align:left;
+    font-size:20px;
 }
 
-.ticket-title{
-    text-align:center;
-    font-size:22px;
-    font-weight:bold;
-    margin-bottom:20px;
+.ticket-top small{
+    color:#aaa;
+}
+
+.ticket-main{
+    display:grid;
+    grid-template-columns:1fr 170px;
 }
 
 .ticket-info{
-    line-height:2;
-    font-size:14px;
+    padding:25px;
 }
 
-.ticket-number{
-    background:#f1f1f1;
-    padding:12px;
-    border-radius:7px;
-    text-align:center;
+.match-name{
+    font-size:28px;
     font-weight:bold;
-    margin-top:18px;
+    margin-bottom:8px;
+}
+
+.info{
+    margin-top:20px;
+    line-height:1.9;
+}
+
+.info strong{
+    display:inline-block;
+    min-width:100px;
+}
+
+.ticket-side{
+    border-left:2px dashed #bbb;
+    padding:20px;
+    text-align:center;
+}
+
+.ticket-side img{
+    width:135px;
+    height:135px;
+    max-width:100%;
+}
+
+.scan{
+    font-size:12px;
+    font-weight:bold;
+    margin-top:8px;
+    letter-spacing:2px;
+}
+
+.ticket-id{
+    margin-top:15px;
+    font-size:12px;
+    font-weight:bold;
+    word-break:break-all;
+}
+
+.valid{
+    display:inline-block;
+    margin-top:15px;
+    padding:7px 12px;
+    border-radius:20px;
+    background:#dff7e5;
+    color:#16833b;
+    font-weight:bold;
+    font-size:13px;
+}
+
+.ticket-bottom{
+    border-top:1px solid #ddd;
+    padding:15px 25px;
+    display:flex;
+    justify-content:space-between;
+    color:#777;
+    font-size:12px;
 }
 
 .close{
-    width:100%;
-    margin-top:20px;
-    padding:12px;
-    background:#111;
-    color:white;
-    border:0;
-    border-radius:7px;
-    cursor:pointer;
+    margin:0 25px 22px;
+    background:#ddd;
+    color:#111;
 }
 
-footer{
-    text-align:center;
-    padding:30px;
-    margin-top:30px;
-    border-top:1px solid #ddd;
-    color:#777;
+@media(max-width:600px){
+    .ticket-main{
+        grid-template-columns:1fr;
+    }
+
+    .ticket-side{
+        border-left:0;
+        border-top:2px dashed #bbb;
+    }
+
+    .ticket-bottom{
+        flex-direction:column;
+        gap:5px;
+    }
 }
 </style>
 </head>
@@ -177,129 +298,195 @@ footer{
 <body>
 
 <header>
-
 <img class="logo"
-src="A90C106D-B234-4382-848B-47849D6568BC.jpg">
+src="A90C106D-B234-4382-848B-47849D6568BC.jpg"
+alt="FABL">
 
 <h1>FABL ROBLOX LEAGUE</h1>
-
-<div class="subtitle">
-Official Match Center
-</div>
-
+<p>Official Match Center</p>
 </header>
 
 
 <div class="container">
 
-<h2>⚽ MATCHES</h2>
+<h2>⚽ UPCOMING MATCHES</h2>
 
 <div class="matches">
 
-
 <div class="match">
-
 <div class="date">09 AUGUST 2026</div>
 
-<div class="teams">
-WAC <span class="vs">VS</span> KAC
-</div>
+<div class="teams">WAC VS KAC</div>
 
 <div class="time">19:00</div>
 
-<button class="ticket-button"
-onclick="openTicket('WAC','KAC','19:00')">
+<div class="stadium">🏟️ FABL Neutral</div>
+
+<button onclick="openForm('WAC VS KAC','19:00','FABL Neutral')">
 🎟️ GET TICKET
 </button>
-
 </div>
 
 
 <div class="match">
-
 <div class="date">09 AUGUST 2026</div>
 
-<div class="teams">
-CODM <span class="vs">VS</span> ASFAR
-</div>
+<div class="teams">CODM VS ASFAR</div>
 
 <div class="time">20:00</div>
 
-<button class="ticket-button"
-onclick="openTicket('CODM','ASFAR','20:00')">
+<div class="stadium">🏟️ FABL AS Salé</div>
+
+<button onclick="openForm('CODM VS ASFAR','20:00','FABL AS Salé')">
 🎟️ GET TICKET
 </button>
-
 </div>
 
 
 <div class="match">
-
 <div class="date">09 AUGUST 2026</div>
 
-<div class="teams">
-OCS <span class="vs">VS</span> MAS
-</div>
+<div class="teams">OCS VS MAS</div>
 
 <div class="time">21:00</div>
 
-<button class="ticket-button"
-onclick="openTicket('OCS','MAS','21:00')">
+<div class="stadium">🏟️ FABL El Massira</div>
+
+<button onclick="openForm('OCS VS MAS','21:00','FABL El Massira')">
 🎟️ GET TICKET
+</button>
+</div>
+
+</div>
+</div>
+
+
+<!-- FORM -->
+
+<div class="overlay" id="formOverlay">
+
+<div class="form-box">
+
+<h2>🎟️ Get Your Ticket</h2>
+
+<form onsubmit="generateTicket(event)">
+
+<label>First Name</label>
+<input id="firstName" type="text" placeholder="Your first name" required>
+
+<label>Last Name</label>
+<input id="lastName" type="text" placeholder="Your last name" required>
+
+<label>Ticket Type</label>
+<select id="ticketType" onchange="updatePrice()" required>
+<option value="">Choose ticket type</option>
+<option value="ULTRAS">🔥 ULTRAS — 10 R$</option>
+<option value="TRIBUNE">🏟️ TRIBUNE — 20 R$</option>
+<option value="VIP">👑 VIP — 40 R$</option>
+</select>
+
+<label>Zone</label>
+<select id="zone" required>
+<option value="">Choose zone</option>
+<option value="SUD">🔴 SUD</option>
+<option value="NORD">🔵 NORD</option>
+<option value="NEUTRE">⚪ NEUTRE</option>
+</select>
+
+<label>Price</label>
+<input id="price" type="text" readonly placeholder="Automatic">
+
+<button class="generate" type="submit">
+GENERATE TICKET
+</button>
+
+</form>
+
+<button class="cancel" onclick="closeForm()">
+CANCEL
 </button>
 
 </div>
-
-
-</div>
 </div>
 
 
-<!-- TICKET WINDOW -->
+<!-- TICKET -->
 
-<div class="modal" id="ticketModal">
+<div class="ticket-overlay" id="ticketOverlay">
 
 <div class="ticket">
 
-<div class="ticket-header">
+<div class="ticket-top">
 
 <img class="ticket-logo"
 src="A90C106D-B234-4382-848B-47849D6568BC.jpg">
 
-<h3>FABL ROBLOX LEAGUE</h3>
+<div>
+<h2>FABL ROBLOX LEAGUE</h2>
+<small>OFFICIAL MATCH TICKET</small>
+</div>
 
 </div>
 
-<div class="ticket-body">
 
-<div class="ticket-title" id="ticketMatch">
-WAC VS KAC
-</div>
+<div class="ticket-main">
 
 <div class="ticket-info">
 
-📅 Date:
-<strong>09 AUGUST 2026</strong>
+<div class="match-name" id="outMatch">
+WAC VS KAC
+</div>
 
-<br>
+<div>📅 09 AUGUST 2026</div>
+<div>⏰ <span id="outTime"></span></div>
+<div>🏟️ <span id="outStadium"></span></div>
 
-⏰ Time:
-<strong id="ticketTime">19:00</strong>
+<div class="info">
 
-<br>
+<div>
+<strong>Holder:</strong>
+<span id="outName"></span>
+</div>
 
-🏟️ Stadium:
-<strong>FABL STADIUM</strong>
+<div>
+<strong>Type:</strong>
+<span id="outType"></span>
+</div>
 
-<br>
+<div>
+<strong>Zone:</strong>
+<span id="outZone"></span>
+</div>
 
-🎮 Competition:
-<strong>FABL ROBLOX LEAGUE</strong>
+<div>
+<strong>Price:</strong>
+<span id="outPrice"></span> R$
+</div>
 
 </div>
 
-<div class="ticket-number" id="ticketNumber">
-Ticket #FABL-000000
+<span class="valid">✓ VALID TICKET</span>
+
+</div>
+
+
+<div class="ticket-side">
+
+<img id="qrCode"
+alt="SCAN QR">
+
+<div class="scan">SCAN</div>
+
+<div class="ticket-id" id="outId"></div>
+
+</div>
+
+</div>
+
+
+<div class="ticket-bottom">
+<span>FABL • MATCHDAY 01</span>
+<span>ROBLOX LEAGUE • 2026</span>
 </div>
 
 <button class="close" onclick="closeTicket()">
@@ -307,40 +494,118 @@ CLOSE TICKET
 </button>
 
 </div>
-
 </div>
-
-</div>
-
-
-<footer>
-© 2026 FABL ROBLOX LEAGUE
-</footer>
 
 
 <script>
 
-function openTicket(team1,team2,time){
+let selectedMatch="";
+let selectedTime="";
+let selectedStadium="";
 
-    const number =
-    Math.floor(100000 + Math.random() * 900000);
+function openForm(match,time,stadium){
 
-    document.getElementById("ticketMatch").innerText =
-    team1 + " VS " + team2;
+    selectedMatch=match;
+    selectedTime=time;
+    selectedStadium=stadium;
 
-    document.getElementById("ticketTime").innerText =
-    time;
+    document.getElementById("formOverlay")
+    .classList.add("show");
+}
 
-    document.getElementById("ticketNumber").innerText =
-    "Ticket #FABL-" + number;
+function closeForm(){
 
-    document.getElementById("ticketModal")
+    document.getElementById("formOverlay")
+    .classList.remove("show");
+
+}
+
+function updatePrice(){
+
+    const type=document.getElementById("ticketType").value;
+
+    let price="";
+
+    if(type==="ULTRAS") price=10;
+    if(type==="TRIBUNE") price=20;
+    if(type==="VIP") price=40;
+
+    document.getElementById("price").value=
+    price ? price+" R$" : "";
+
+}
+
+function generateTicket(event){
+
+    event.preventDefault();
+
+    const first=
+    document.getElementById("firstName").value.trim();
+
+    const last=
+    document.getElementById("lastName").value.trim();
+
+    const type=
+    document.getElementById("ticketType").value;
+
+    const zone=
+    document.getElementById("zone").value;
+
+    const price=
+    type==="ULTRAS" ? 10 :
+    type==="TRIBUNE" ? 20 : 40;
+
+    const random=
+    Math.random().toString(36)
+    .substring(2,8).toUpperCase();
+
+    const ticketId="FABL-"+random;
+
+    document.getElementById("outMatch").innerText=
+    selectedMatch;
+
+    document.getElementById("outTime").innerText=
+    selectedTime;
+
+    document.getElementById("outStadium").innerText=
+    selectedStadium;
+
+    document.getElementById("outName").innerText=
+    first+" "+last;
+
+    document.getElementById("outType").innerText=
+    type;
+
+    document.getElementById("outZone").innerText=
+    zone;
+
+    document.getElementById("outPrice").innerText=
+    price;
+
+    document.getElementById("outId").innerText=
+    ticketId;
+
+    const qrData=
+    "FABL ROBLOX LEAGUE | "+
+    ticketId+" | "+
+    selectedMatch+" | "+
+    first+" "+last+" | "+
+    type+" | "+
+    zone;
+
+    document.getElementById("qrCode").src=
+    "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data="
+    +encodeURIComponent(qrData);
+
+    closeForm();
+
+    document.getElementById("ticketOverlay")
     .classList.add("show");
 }
 
 function closeTicket(){
 
-    document.getElementById("ticketModal")
+    document.getElementById("ticketOverlay")
     .classList.remove("show");
 
 }
@@ -348,4 +613,4 @@ function closeTicket(){
 </script>
 
 </body>
-</html>
+    </html>
