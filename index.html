@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FABL ROBLOX LEAGUE</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+font-family:Arial,sans-serif;
+background:#050810;
+color:white;
+}
+
+header{
+background:#080d18;
+border-bottom:1px solid #1d2b44;
+padding:12px 18px;
+position:sticky;
+top:0;
+z-index:10;
+}
+
+.nav{
+max-width:1100px;
+margin:auto;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+.logo{
+width:48px;
+height:48px;
+border-radius:50%;
+object-fit:cover;
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:10px;
+font-weight:bold;
+}
+
+nav a{
+color:#aaa;
+text-decoration:none;
+margin-left:12px;
+font-size:12px;
+}
+
+nav a:hover{color:white}
+
+.hero{
+text-align:center;
+padding:75px 20px;
+background:radial-gradient(circle,#123b80,#050810 65%);
+}
+
+.hero img{
+width:150px;
+height:150px;
+border-radius:50%;
+object-fit:cover;
+box-shadow:0 0 40px #1769ff;
+}
+
+.hero h1{
+font-size:40px;
+margin:22px 0 10px;
+}
+
+.hero p{
+color:#9ba8bb;
+margin-bottom:28px;
+}
+
+.button{
+display:inline-block;
+background:#1769ff;
+color:white;
+padding:14px 24px;
+border-radius:7px;
+text-decoration:none;
+font-weight:bold;
+border:0;
+cursor:pointer;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:55px 18px;
+}
+
+.title{
+margin-bottom:25px;
+font-size:25px;
+}
+
+.matches{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+gap:18px;
+}
+
+.match{
+background:#0c1422;
+border:1px solid #1d2b44;
+border-radius:14px;
+padding:24px;
+text-align:center;
+}
+
+.date{
+color:#72829a;
+font-size:13px;
+margin-bottom:20px;
+}
+
+.teams{
+font-size:22px;
+font-weight:bold;
+margin:20px 0;
+}
+
+.vs{
+color:#4388ff;
+font-size:13px;
+margin:0 8px;
+}
+
+.info{
+color:#8c99ab;
+font-size:13px;
+line-height:1.8;
+margin-bottom:20px;
+}
+
+.ticket-btn{
+width:100%;
+}
+
+.table{
+width:100%;
+border-collapse:collapse;
+background:#0c1422;
+border-radius:12px;
+overflow:hidden;
+}
+
+th,td{
+padding:15px;
+border-bottom:1px solid #172338;
+text-align:left;
+}
+
+th{
+color:#72829a;
+font-size:12px;
+}
+
+td{
+font-size:14px;
+}
+
+.teams-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+gap:15px;
+}
+
+.team-card{
+background:#0c1422;
+border:1px solid #1d2b44;
+border-radius:12px;
+padding:25px 10px;
+text-align:center;
+}
+
+.team-card strong{
+font-size:18px;
+}
+
+.team-card p{
+color:#718096
