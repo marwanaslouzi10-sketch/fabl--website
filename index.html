@@ -1,15 +1,351 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>FABL ROBLOX LEAGUE</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#fff;
+    color:#111;
+}
+
+header{
+    text-align:center;
+    padding:30px 15px;
+    border-bottom:1px solid #ddd;
+}
+
+.logo{
+    width:100px;
+    height:100px;
+    object-fit:cover;
+    border-radius:50%;
+}
+
+h1{
+    margin:15px 0 5px;
+}
+
+.subtitle{
+    color:#777;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:35px 15px;
+}
+
+h2{
+    text-align:center;
+}
+
+.matches{
+    display:grid;
+    gap:18px;
+    margin-top:25px;
+}
+
+.match{
+    border:1px solid #ddd;
+    border-radius:12px;
+    padding:25px;
+    text-align:center;
+}
+
+.date{
+    color:#777;
+    font-size:14px;
+}
+
+.teams{
+    font-size:23px;
+    font-weight:bold;
+    margin:18px 0;
+}
+
+.vs{
+    color:#777;
+    margin:0 10px;
+}
+
+.time{
+    font-weight:bold;
+    margin-bottom:18px;
+}
+
+.ticket-button{
+    background:#111;
+    color:white;
+    border:0;
+    padding:11px 20px;
+    border-radius:7px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* TICKET */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.65);
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.ticket{
+    width:100%;
+    max-width:380px;
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 15px 50px #0005;
+}
+
+.ticket-header{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+.ticket-logo{
+    width:65px;
+    height:65px;
+    object-fit:cover;
+    border-radius:50%;
+}
+
+.ticket-body{
+    padding:25px;
+}
+
+.ticket-title{
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.ticket-info{
+    line-height:2;
+    font-size:14px;
+}
+
+.ticket-number{
+    background:#f1f1f1;
+    padding:12px;
+    border-radius:7px;
+    text-align:center;
+    font-weight:bold;
+    margin-top:18px;
+}
+
+.close{
+    width:100%;
+    margin-top:20px;
+    padding:12px;
+    background:#111;
+    color:white;
+    border:0;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    margin-top:30px;
+    border-top:1px solid #ddd;
+    color:#777;
+}
+</style>
 </head>
+
 <body>
+
+<header>
+
+<img class="logo"
+src="A90C106D-B234-4382-848B-47849D6568BC.jpg">
 
 <h1>FABL ROBLOX LEAGUE</h1>
 
-<p>WAC VS KAC — 19:00</p>
-<p>CODM VS ASFAR — 20:00</p>
-<p>OCS VS MAS — 21:00</p>
+<div class="subtitle">
+Official Match Center
+</div>
+
+</header>
+
+
+<div class="container">
+
+<h2>⚽ MATCHES</h2>
+
+<div class="matches">
+
+
+<div class="match">
+
+<div class="date">09 AUGUST 2026</div>
+
+<div class="teams">
+WAC <span class="vs">VS</span> KAC
+</div>
+
+<div class="time">19:00</div>
+
+<button class="ticket-button"
+onclick="openTicket('WAC','KAC','19:00')">
+🎟️ GET TICKET
+</button>
+
+</div>
+
+
+<div class="match">
+
+<div class="date">09 AUGUST 2026</div>
+
+<div class="teams">
+CODM <span class="vs">VS</span> ASFAR
+</div>
+
+<div class="time">20:00</div>
+
+<button class="ticket-button"
+onclick="openTicket('CODM','ASFAR','20:00')">
+🎟️ GET TICKET
+</button>
+
+</div>
+
+
+<div class="match">
+
+<div class="date">09 AUGUST 2026</div>
+
+<div class="teams">
+OCS <span class="vs">VS</span> MAS
+</div>
+
+<div class="time">21:00</div>
+
+<button class="ticket-button"
+onclick="openTicket('OCS','MAS','21:00')">
+🎟️ GET TICKET
+</button>
+
+</div>
+
+
+</div>
+</div>
+
+
+<!-- TICKET WINDOW -->
+
+<div class="modal" id="ticketModal">
+
+<div class="ticket">
+
+<div class="ticket-header">
+
+<img class="ticket-logo"
+src="A90C106D-B234-4382-848B-47849D6568BC.jpg">
+
+<h3>FABL ROBLOX LEAGUE</h3>
+
+</div>
+
+<div class="ticket-body">
+
+<div class="ticket-title" id="ticketMatch">
+WAC VS KAC
+</div>
+
+<div class="ticket-info">
+
+📅 Date:
+<strong>09 AUGUST 2026</strong>
+
+<br>
+
+⏰ Time:
+<strong id="ticketTime">19:00</strong>
+
+<br>
+
+🏟️ Stadium:
+<strong>FABL STADIUM</strong>
+
+<br>
+
+🎮 Competition:
+<strong>FABL ROBLOX LEAGUE</strong>
+
+</div>
+
+<div class="ticket-number" id="ticketNumber">
+Ticket #FABL-000000
+</div>
+
+<button class="close" onclick="closeTicket()">
+CLOSE TICKET
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<footer>
+© 2026 FABL ROBLOX LEAGUE
+</footer>
+
+
+<script>
+
+function openTicket(team1,team2,time){
+
+    const number =
+    Math.floor(100000 + Math.random() * 900000);
+
+    document.getElementById("ticketMatch").innerText =
+    team1 + " VS " + team2;
+
+    document.getElementById("ticketTime").innerText =
+    time;
+
+    document.getElementById("ticketNumber").innerText =
+    "Ticket #FABL-" + number;
+
+    document.getElementById("ticketModal")
+    .classList.add("show");
+}
+
+function closeTicket(){
+
+    document.getElementById("ticketModal")
+    .classList.remove("show");
+
+}
+
+</script>
 
 </body>
 </html>
