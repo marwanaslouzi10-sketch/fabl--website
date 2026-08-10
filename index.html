@@ -3,84 +3,77 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FABL ROBLOX LEAGUE</title>
+<title>FABL | Match Center</title>
 
 <style>
 *{box-sizing:border-box}
 
 body{
     margin:0;
-    font-family:Arial,Helvetica,sans-serif;
-    background:#050810;
-    color:white;
+    font-family:Arial,sans-serif;
+    background:#05080f;
+    color:#fff;
 }
 
 header{
-    background:linear-gradient(135deg,#080d18,#101d38);
-    border-bottom:1px solid #26395f;
     text-align:center;
-    padding:30px 15px;
+    padding:35px 15px;
+    background:linear-gradient(135deg,#08101d,#10284a);
+    border-bottom:1px solid #29466e;
 }
 
-.logo{
-    width:95px;
-    height:95px;
-    object-fit:cover;
+header img{
+    width:90px;
+    height:90px;
     border-radius:50%;
+    object-fit:cover;
 }
 
 header h1{
-    margin:14px 0 5px;
-    font-size:28px;
+    margin:15px 0 5px;
 }
 
 header p{
-    margin:0;
-    color:#9ba8bd;
+    color:#9aaac0;
 }
 
 .container{
-    max-width:1000px;
+    max-width:950px;
     margin:auto;
-    padding:30px 15px 60px;
+    padding:25px 15px 60px;
 }
 
-.section-title{
+.title{
     text-align:center;
-    font-size:26px;
-    margin:10px 0 20px;
+    margin:10px 0 25px;
 }
 
-.day-title{
-    background:#0d172b;
-    border:1px solid #26395f;
+.day{
+    background:#101b2d;
+    border:1px solid #29415f;
+    padding:15px;
     border-radius:12px;
-    padding:15px 18px;
-    margin:20px 0 15px;
-    font-size:21px;
+    font-size:20px;
     font-weight:bold;
-}
-
-.matches{
-    display:grid;
-    gap:15px;
+    margin-bottom:15px;
 }
 
 .match{
-    background:#0c1322;
-    border:1px solid #26395f;
-    border-radius:15px;
+    background:#0d1522;
+    border:1px solid #253b59;
+    border-radius:16px;
     padding:22px;
+    margin-bottom:14px;
     text-align:center;
 }
 
 .match:hover{
-    border-color:#1685ff;
+    border-color:#1687ff;
 }
 
 .date{
-    color:#8f9db3;
-    font-size:14px;
+    color:#8e9db1;
+    font-size:13px;
 }
 
 .teams{
@@ -90,21 +83,21 @@ header p{
 }
 
 .time{
-    color:#55aaff;
+    color:#56aaff;
     font-weight:bold;
 }
 
 .stadium{
-    color:#9ba8bd;
+    color:#9caabd;
     margin:8px 0 18px;
 }
 
 button{
-    border:none;
-    background:#0878ff;
-    color:white;
+    border:0;
+    border-radius:9px;
     padding:12px 20px;
-    border-radius:8px;
+    background:#087fff;
+    color:#fff;
     font-weight:bold;
     cursor:pointer;
 }
@@ -115,136 +108,109 @@ button:hover{
 
 /* PREDICTIONS */
 
-.prediction-section{
-    background:#0c1322;
-    border:1px solid #26395f;
+.predictions{
+    margin-top:40px;
+    background:#0d1522;
+    border:1px solid #253b59;
     border-radius:18px;
     padding:25px;
-    margin-top:45px;
 }
 
-.prediction-title{
+.predictions h2{
     text-align:center;
-    font-size:26px;
-    font-weight:bold;
 }
 
-.prediction-subtitle{
+.sub{
     text-align:center;
-    color:#8f9db3;
-    margin:8px 0 25px;
-}
-
-.prediction-form{
-    max-width:550px;
-    margin:auto;
+    color:#8e9db1;
+    margin-bottom:25px;
 }
 
 label{
     display:block;
-    margin-top:16px;
-    margin-bottom:7px;
+    margin:15px 0 7px;
     font-weight:bold;
 }
 
 input,select{
     width:100%;
     padding:13px;
-    border-radius:9px;
-    border:1px solid #34486c;
-    background:#070c16;
-    color:white;
+    background:#060b13;
+    color:#fff;
+    border:1px solid #304764;
+    border-radius:8px;
     outline:none;
-}
-
-input:focus,select:focus{
-    border-color:#1685ff;
 }
 
 .score{
     display:flex;
+    gap:10px;
     align-items:center;
-    gap:12px;
 }
 
 .score input{
     text-align:center;
 }
 
-.submit{
+.full{
     width:100%;
-    margin-top:22px;
+    margin-top:18px;
 }
 
-.board{
-    margin-top:35px;
-    border-top:1px solid #26395f;
-    padding-top:25px;
+.prediction-list{
+    margin-top:30px;
+    border-top:1px solid #253b59;
+    padding-top:20px;
 }
 
-.board h3{
-    text-align:center;
-}
-
-.prediction-card{
-    background:#070c16;
-    border:1px solid #26395f;
-    border-radius:10px;
-    padding:15px;
+.prediction{
+    background:#070d16;
+    border:1px solid #243850;
+    padding:14px;
+    border-radius:9px;
     margin-top:10px;
 }
 
-.prediction-user{
-    font-weight:bold;
+.user{
     color:#55aaff;
+    font-weight:bold;
 }
 
-.prediction-result{
-    margin-top:7px;
-    color:#d6dce7;
-    line-height:1.7;
-}
-
-/* TICKET FORM */
+/* OVERLAY */
 
 .overlay{
     display:none;
     position:fixed;
     inset:0;
-    background:#000c;
+    background:rgba(0,0,0,.85);
+    z-index:100;
     justify-content:center;
     align-items:center;
     padding:15px;
-    z-index:100;
+    overflow:auto;
 }
 
 .overlay.show{
     display:flex;
 }
 
-.form-box{
+.box{
     width:100%;
     max-width:450px;
-    background:#101827;
-    border:1px solid #34486c;
-    border-radius:18px;
+    background:#101a29;
+    border:1px solid #304764;
+    border-radius:17px;
     padding:25px;
 }
 
-.form-box h2{
+.box h2{
     text-align:center;
-    margin-top:0;
 }
 
-.generate{
-    width:100%;
-    margin-top:22px;
-}
-
-.cancel{
+.close{
     width:100%;
     margin-top:10px;
-    background:#263246;
+    background:#263449;
 }
 
 /* TICKET */
@@ -253,11 +219,11 @@ input:focus,select:focus{
     display:none;
     position:fixed;
     inset:0;
-    background:#000d;
+    background:rgba(0,0,0,.9);
+    z-index:200;
     justify-content:center;
     align-items:center;
     padding:15px;
-    z-index:200;
     overflow:auto;
 }
 
@@ -268,127 +234,122 @@ input:focus,select:focus{
 .ticket{
     width:100%;
     max-width:720px;
-    background:white;
+    background:#fff;
     color:#111;
     border-radius:18px;
     overflow:hidden;
 }
 
-.ticket-top{
-    background:#101827;
-    color:white;
+.ticket-header{
+    background:#0b1320;
+    color:#fff;
     padding:22px;
     display:flex;
     align-items:center;
     gap:15px;
 }
 
-.ticket-logo{
-    width:65px;
-    height:65px;
+.ticket-header img{
+    width:60px;
+    height:60px;
     border-radius:50%;
     object-fit:cover;
 }
 
-.ticket-top h2{
-    margin:0;
-    font-size:21px;
+.ticket-header h2{
+    margin:0 0 5px;
 }
 
-.ticket-top small{
-    color:#9ba8bd;
+.ticket-header small{
+    color:#9aaac0;
 }
 
-.ticket-main{
+.ticket-content{
     display:grid;
-    grid-template-columns:1fr 180px;
+    grid-template-columns:1fr 190px;
 }
 
 .ticket-info{
     padding:25px;
 }
 
-.match-name{
-    font-size:27px;
+.ticket-match{
+    font-size:26px;
     font-weight:bold;
-    margin-bottom:12px;
+    margin-bottom:18px;
 }
 
 .info{
-    margin-top:20px;
     line-height:2;
 }
 
 .info strong{
     display:inline-block;
-    min-width:90px;
+    width:90px;
 }
 
-.valid{
-    display:inline-block;
-    margin-top:15px;
-    padding:7px 13px;
-    border-radius:20px;
-    background:#dff7e5;
-    color:#16833b;
-    font-weight:bold;
-    font-size:13px;
-}
-
-.ticket-side{
+.ticket-qr{
     border-left:2px dashed #aaa;
     padding:20px;
     text-align:center;
 }
 
-.ticket-side img{
-    width:135px;
-    height:135px;
+.ticket-qr img{
+    width:145px;
+    height:145px;
 }
 
 .scan{
     font-weight:bold;
     letter-spacing:3px;
-    margin-top:5px;
 }
 
-.ticket-id{
-    font-size:11px;
-    word-break:break-all;
-    margin-top:12px;
+.ticket-code{
+    font-family:monospace;
+    font-size:12px;
     color:#555;
+    margin-top:10px;
+    word-break:break-all;
 }
 
-.ticket-bottom{
+.ticket-note{
+    margin-top:20px;
+    padding:13px;
+    background:#edf5ff;
+    color:#174b80;
+    border-radius:8px;
+    font-size:13px;
+}
+
+.ticket-footer{
     border-top:1px solid #ddd;
     padding:15px 25px;
-    display:flex;
-    justify-content:space-between;
     color:#777;
     font-size:12px;
+    display:flex;
+    justify-content:space-between;
 }
 
-.close{
+.close-ticket{
     margin:0 25px 22px;
-    background:#222;
+    background:#111;
 }
 
 @media(max-width:600px){
-    header h1{font-size:23px}
     .teams{font-size:21px}
 
-    .ticket-main{
+    .ticket-content{
         grid-template-columns:1fr;
     }
 
-    .ticket-side{
-        border-left:none;
+    .ticket-qr{
+        border-left:0;
         border-top:2px dashed #aaa;
     }
 
-    .ticket-bottom{
-        flex-direction:column;
-        gap:6px;
+    .ticket-footer{
+        display:block;
+        line-height:1.8;
     }
 }
 </style>
@@ -398,13 +359,10 @@ input:focus,select:focus{
 
 <header>
 
-<img
-class="logo"
-src="A90C106D-B234-4382-848B-47849D6568BC.jpg"
-alt="FABL"
->
+<img src="A90C106D-B234-4382-848B-47849D6568BC.jpg">
 
 <h1>FABL ROBLOX LEAGUE</h1>
+
 <p>Official Match Center</p>
 
 </header>
@@ -412,267 +370,195 @@ alt="FABL"
 
 <div class="container">
 
-<div class="section-title">
-⚽ MATCHES
-</div>
+<h2 class="title">⚽ MATCHES</h2>
 
-<div class="day-title">
-🏆 JOURNÉE 2
-</div>
+<div class="day">🏆 JOURNÉE 2</div>
 
 
-<div class="matches">
-
-<!-- ASS VS OCS -->
+<!-- MATCH 1 -->
 
 <div class="match">
 
-<div class="date">
-Tuesday • 11 August 2026
-</div>
+<div class="date">Mardi 11 Aout 2026</div>
 
-<div class="teams">
-ASS VS OCS
-</div>
+<div class="teams">ASS 🆚 OCS</div>
 
-<div class="time">
-⏰ 21:00
-</div>
+<div class="time">21:00</div>
 
-<div class="stadium">
-🏟️ FABL ASS
-</div>
+<div class="stadium">🏟️ FABL ASS</div>
 
-<button onclick="openForm('ASS VS OCS','11 August 2026','21:00','FABL ASS')">
+<button onclick="openTicketForm(
+'ASS VS OCS',
+'11 Aout 2026',
+'21:00',
+'FABL ASS',
+'ASS'
+)">
 🎟️ GET TICKET
 </button>
 
 </div>
 
 
-<!-- KACM VS KAC -->
+<!-- MATCH 2 -->
 
 <div class="match">
 
-<div class="date">
-Tuesday • 11 August 2026
-</div>
+<div class="date">Mardi 11 Aout 2026</div>
 
-<div class="teams">
-KACM VS KAC
-</div>
+<div class="teams">KACM 🆚 KAC</div>
 
-<div class="time">
-⏰ 23:00
-</div>
+<div class="time">23:00</div>
 
-<div class="stadium">
-🏟️ FABL Neutral
-</div>
+<div class="stadium">🏟️ FABL Neutral</div>
 
-<button onclick="openForm('KACM VS KAC','11 August 2026','23:00','FABL Neutral')">
+<button onclick="openTicketForm(
+'KACM VS KAC',
+'11 Aout 2026',
+'23:00',
+'FABL Neutral',
+'NEUTRAL'
+)">
 🎟️ GET TICKET
 </button>
 
 </div>
 
 
-<!-- WAC VS MAS -->
+<!-- MATCH 3 -->
 
 <div class="match">
 
-<div class="date">
-Wednesday • 12 August 2026
-</div>
+<div class="date">Mercredi 12 Aout 2026</div>
 
-<div class="teams">
-WAC VS MAS
-</div>
+<div class="teams">WAC 🆚 MAS</div>
 
-<div class="time">
-⏰ 21:00
-</div>
+<div class="time">21:00</div>
 
-<div class="stadium">
-🏟️ FABL Neutral
-</div>
+<div class="stadium">🏟️ FABL Neutral</div>
 
-<button onclick="openForm('WAC VS MAS','12 August 2026','21:00','FABL Neutral')">
+<button onclick="openTicketForm(
+'WAC VS MAS',
+'12 Aout 2026',
+'21:00',
+'FABL Neutral',
+'NEUTRAL'
+)">
 🎟️ GET TICKET
 </button>
 
 </div>
 
 
-<!-- ASFAR VS RCA -->
+<!-- MATCH 4 -->
 
 <div class="match">
 
-<div class="date">
-Wednesday • 12 August 2026
-</div>
+<div class="date">Mercredi 12 Aout 2026</div>
 
-<div class="teams">
-ASFAR VS RCA
-</div>
+<div class="teams">ASFAR 🆚 RCA</div>
 
-<div class="time">
-⏰ 23:00
-</div>
+<div class="time">23:00</div>
 
-<div class="stadium">
-🏟️ FABL ASS
-</div>
+<div class="stadium">🏟️ FABL ASS</div>
 
-<button onclick="openForm('ASFAR VS RCA','12 August 2026','23:00','FABL ASS')">
+<button onclick="openTicketForm(
+'ASFAR VS RCA',
+'12 Aout 2026',
+'23:00',
+'FABL ASS',
+'ASS'
+)">
 🎟️ GET TICKET
 </button>
 
 </div>
 
 
-<!-- IRT VS CODM -->
+<!-- MATCH 5 -->
 
 <div class="match">
 
-<div class="date">
-Thursday • 13 August 2026
-</div>
+<div class="date">Jeudi 13 Aout 2026</div>
 
-<div class="teams">
-IRT VS CODM
-</div>
+<div class="teams">IRT 🆚 CODM</div>
 
-<div class="time">
-⏰ 21:30
-</div>
+<div class="time">21:30</div>
 
-<div class="stadium">
-🏟️ FABL OCS
-</div>
+<div class="stadium">🏟️ FABL OCS</div>
 
-<button onclick="openForm('IRT VS CODM','13 August 2026','21:30','FABL OCS')">
+<button onclick="openTicketForm(
+'IRT VS CODM',
+'13 Aout 2026',
+'21:30',
+'FABL OCS',
+'ELMASSIRA'
+)">
 🎟️ GET TICKET
 </button>
-
-</div>
 
 </div>
 
 
 <!-- PREDICTIONS -->
 
-<div class="prediction-section">
+<div class="predictions">
 
-<div class="prediction-title">
-🔮 FABL PREDICTIONS
-</div>
+<h2>🔮 PREDICTIONS</h2>
 
-<div class="prediction-subtitle">
-Enter your Discord username and predict the match.
-</div>
+<p class="sub">
+Write your Discord username before making your prediction.
+</p>
 
-
-<div class="prediction-form">
-
-<label>
-Discord Username
-</label>
+<label>Discord Username</label>
 
 <input
-id="discordUsername"
-type="text"
+id="discord"
 placeholder="@username"
 >
 
 
-<label>
-Choose Match
-</label>
+<label>Choose Match</label>
 
-<select
-id="predictionMatch"
-onchange="updateWinnerOptions()"
->
+<select id="predictionMatch" onchange="changeTeams()">
 
-<option value="ASS VS OCS">
-ASS VS OCS
-</option>
-
-<option value="KACM VS KAC">
-KACM VS KAC
-</option>
-
-<option value="WAC VS MAS">
-WAC VS MAS
-</option>
-
-<option value="ASFAR VS RCA">
-ASFAR VS RCA
-</option>
-
-<option value="IRT VS CODM">
-IRT VS CODM
-</option>
+<option>ASS VS OCS</option>
+<option>KACM VS KAC</option>
+<option>WAC VS MAS</option>
+<option>ASFAR VS RCA</option>
+<option>IRT VS CODM</option>
 
 </select>
 
 
-<label>
-Who will win?
-</label>
+<label>Who will win?</label>
 
 <select id="winner"></select>
 
 
-<label>
-Score Prediction
-</label>
+<label>Score Prediction</label>
 
 <div class="score">
 
-<input
-id="homeScore"
-type="number"
-min="0"
-max="99"
-placeholder="0"
->
+<input id="score1" type="number" min="0" placeholder="0">
 
-<strong>—</strong>
+<b>VS</b>
 
-<input
-id="awayScore"
-type="number"
-min="0"
-max="99"
-placeholder="0"
->
+<input id="score2" type="number" min="0" placeholder="0">
 
 </div>
 
 
-<button
-class="submit"
-onclick="submitPrediction()"
->
-🔮 SUBMIT PREDICTION
+<button class="full" onclick="savePrediction()">
+🔮 SAVE PREDICTION
 </button>
 
-</div>
 
+<div class="prediction-list">
 
-<div class="board">
+<h3>📊 Predictions</h3>
 
-<h3>
-📊 PREDICTION BOARD
-</h3>
-
-<div id="predictionBoard">
-<p style="color:#8f9db3;text-align:center;">
-No predictions yet.
-</p>
-</div>
+<div id="predictionList"></div>
 
 </div>
 
@@ -683,123 +569,52 @@ No predictions yet.
 
 <!-- TICKET FORM -->
 
-<div
-class="overlay"
-id="formOverlay"
->
+<div class="overlay" id="form">
 
-<div class="form-box">
+<div class="box">
 
-<h2>
-🎟️ GET YOUR TICKET
-</h2>
+<h2>🎟️ GET YOUR TICKET</h2>
 
-<form onsubmit="generateTicket(event)">
+<label>First Name</label>
 
-<label>
-First Name
-</label>
-
-<input
-id="firstName"
-type="text"
-placeholder="First name"
-required
->
+<input id="firstName" placeholder="First name">
 
 
-<label>
-Last Name
-</label>
+<label>Last Name</label>
 
-<input
-id="lastName"
-type="text"
-placeholder="Last name"
-required
->
+<input id="lastName" placeholder="Last name">
 
 
-<label>
-Ticket Type
-</label>
+<label>Ticket Type</label>
 
-<select
-id="ticketType"
-onchange="updatePrice()"
-required
->
+<select id="ticketType">
 
-<option value="">
-Choose ticket
-</option>
-
-<option value="ULTRAS">
-🔥 ULTRAS — 10 R$
-</option>
-
-<option value="TRIBUNE">
-🏟️ TRIBUNE — 20 R$
-</option>
-
-<option value="VIP">
-👑 VIP — 40 R$
-</option>
+<option value="">Choose ticket</option>
+<option value="ULTRAS">🔥 ULTRAS — 10 R$</option>
+<option value="TRIBUNE">🏟️ TRIBUNE — 20 R$</option>
+<option value="VIP">👑 VIP — 40 R$</option>
 
 </select>
 
 
-<label>
-Zone
-</label>
+<label>Zone</label>
 
-<select id="zone" required>
+<select id="zone">
 
-<option value="">
-Choose zone
-</option>
-
-<option value="SUD">
-🔴 SUD
-</option>
-
-<option value="NORD">
-🔵 NORD
-</option>
-
-<option value="NEUTRE">
-⚪ NEUTRE
-</option>
+<option value="">Choose zone</option>
+<option>SUD</option>
+<option>NORD</option>
+<option>NEUTRE</option>
 
 </select>
 
 
-<label>
-Ticket Price
-</label>
-
-<input
-id="price"
-type="text"
-readonly
-placeholder="Automatic"
->
-
-
-<button
-class="generate"
-type="submit"
->
-GENERATE TICKET
+<button class="full" type="button" onclick="generateTicket()">
+🎟️ GENERATE TICKET
 </button>
 
-</form>
 
-
-<button
-class="cancel"
-onclick="closeForm()"
->
+<button class="close" type="button" onclick="closeForm()">
 CANCEL
 </button>
 
@@ -808,132 +623,107 @@ CANCEL
 </div>
 
 
-<!-- GENERATED TICKET -->
+<!-- TICKET -->
 
-<div
-class="ticket-overlay"
-id="ticketOverlay"
->
+<div class="ticket-overlay" id="ticketOverlay">
 
 <div class="ticket">
 
-<div class="ticket-top">
+<div class="ticket-header">
 
-<img
-class="ticket-logo"
-src="A90C106D-B234-4382-848B-47849D6568BC.jpg"
-alt="FABL"
->
+<img src="A90C106D-B234-4382-848B-47849D6568BC.jpg">
 
 <div>
 
-<h2>
-FABL ROBLOX LEAGUE
-</h2>
+<h2>FABL ROBLOX LEAGUE</h2>
 
-<small>
-OFFICIAL MATCH TICKET
-</small>
+<small>OFFICIAL MATCH TICKET</small>
 
 </div>
 
 </div>
 
 
-<div class="ticket-main">
+<div class="ticket-content">
 
 <div class="ticket-info">
 
-<div
-class="match-name"
-id="outMatch"
->
+<div class="ticket-match" id="ticketMatch">
 MATCH
 </div>
-
-<div>
-📅 <span id="outDate"></span>
-</div>
-
-<div>
-⏰ <span id="outTime"></span>
-</div>
-
-<div>
-🏟️ <span id="outStadium"></span>
-</div>
-
 
 <div class="info">
 
 <div>
-<strong>Holder:</strong>
-<span id="outName"></span>
+<strong>📅 Date:</strong>
+<span id="ticketDate"></span>
 </div>
 
 <div>
-<strong>Type:</strong>
-<span id="outType"></span>
+<strong>⏰ Time:</strong>
+<span id="ticketTime"></span>
 </div>
 
 <div>
-<strong>Zone:</strong>
-<span id="outZone"></span>
+<strong>🏟️ Stadium:</strong>
+<span id="ticketStadium"></span>
 </div>
 
 <div>
-<strong>Price:</strong>
-<span id="outPrice"></span> R$
+<strong>👤 Holder:</strong>
+<span id="ticketHolder"></span>
+</div>
+
+<div>
+<strong>🎫 Type:</strong>
+<span id="ticketTypeOut"></span>
+</div>
+
+<div>
+<strong>📍 Zone:</strong>
+<span id="ticketZone"></span>
+</div>
+
+<div>
+<strong>💰 Price:</strong>
+<span id="ticketPrice"></span> R$
 </div>
 
 </div>
 
 
-<span class="valid">
-✓ VALID TICKET
-</span>
+<div class="ticket-note">
 
-</div>
-
-
-<div class="ticket-side">
-
-<img
-id="qrCode"
-alt="QR CODE"
->
-
-<div class="scan">
-SCAN
-</div>
-
-<div
-class="ticket-id"
-id="outId"
-></div>
+🎮 Scan the QR code to enter the Roblox map of this match.
 
 </div>
 
 </div>
 
 
-<div class="ticket-bottom">
+<div class="ticket-qr">
 
-<span>
-FABL • JOURNÉE 2
-</span>
+<img id="qr">
 
-<span>
-ROBLOX LEAGUE • 2026
-</span>
+<div class="scan">SCAN</div>
+
+<div class="ticket-code" id="ticketCode"></div>
+
+</div>
 
 </div>
 
 
-<button
-class="close"
-onclick="closeTicket()"
->
+<div class="ticket-footer">
+
+<span>FABL • JOURNÉE 2</span>
+
+<span>ROBLOX LEAGUE • 2026</span>
+
+</div>
+
+
+<button class="close-ticket" onclick="closeTicket()">
 CLOSE TICKET
 </button>
 
@@ -944,356 +734,475 @@ CLOSE TICKET
 
 <script>
 
-/* TICKET */
+/* =========================
+   ROBLOX MAPS
+========================= */
 
-let selectedMatch="";
-let selectedDate="";
-let selectedTime="";
-let selectedStadium="";
+const maps = {
+
+ASS:
+"https://www.roblox.com/share?code=7a679db210abf04c841900db93958ce8&type=ExperienceDetails&stamp=1785437176622",
+
+NEUTRAL:
+"https://www.roblox.com/share?code=b12432dfe4d8f34b89eaf17817c75307&type=ExperienceDetails&stamp=1786218593563",
+
+ELMASSIRA:
+"https://www.roblox.com/games/123317744215347/Fabl-stadium-el-massira"
+
+};
 
 
-function openForm(match,date,time,stadium){
+/* =========================
+   SELECTED MATCH
+========================= */
 
-    selectedMatch=match;
-    selectedDate=date;
-    selectedTime=time;
-    selectedStadium=stadium;
+let selectedMatch={};
 
-    document
-    .getElementById("formOverlay")
-    .classList.add("show");
+
+/* =========================
+   OPEN FORM
+========================= */
+
+function openTicketForm(
+match,
+date,
+time,
+stadium,
+map
+){
+
+selectedMatch={
+match:match,
+date:date,
+time:time,
+stadium:stadium,
+map:map
+};
+
+document.getElementById("form")
+.classList.add("show");
+
 }
 
+
+/* =========================
+   CLOSE FORM
+========================= */
 
 function closeForm(){
 
-    document
-    .getElementById("formOverlay")
-    .classList.remove("show");
+document.getElementById("form")
+.classList.remove("show");
+
 }
 
 
-function updatePrice(){
+/* =========================
+   GENERATE TICKET
+========================= */
 
-    const type=
-    document.getElementById("ticketType").value;
+function generateTicket(){
 
-    let price="";
+const first=
+document.getElementById("firstName").value.trim();
 
-    if(type==="ULTRAS") price=10;
-    if(type==="TRIBUNE") price=20;
-    if(type==="VIP") price=40;
+const last=
+document.getElementById("lastName").value.trim();
 
-    document.getElementById("price").value=
-    price ? price+" R$" : "";
+const type=
+document.getElementById("ticketType").value;
+
+const zone=
+document.getElementById("zone").value;
+
+
+if(!first || !last || !type || !zone){
+
+alert("Please complete all information.");
+
+return;
+
 }
 
 
-function generateTicket(event){
+let price=0;
 
-    event.preventDefault();
+if(type==="ULTRAS") price=10;
 
-    const first=
-    document.getElementById("firstName").value.trim();
+if(type==="TRIBUNE") price=20;
 
-    const last=
-    document.getElementById("lastName").value.trim();
-
-    const type=
-    document.getElementById("ticketType").value;
-
-    const zone=
-    document.getElementById("zone").value;
-
-    let price=0;
-
-    if(type==="ULTRAS") price=10;
-    if(type==="TRIBUNE") price=20;
-    if(type==="VIP") price=40;
+if(type==="VIP") price=40;
 
 
-    const ticketId=
-    "FABL-"+Math.random()
-    .toString(36)
-    .substring(2,9)
-    .toUpperCase();
+const code=
+"FABL-"+
+Math.random()
+.toString(36)
+.substring(2,7)
+.toUpperCase()+
+"-"+
+Math.floor(1000+Math.random()*9000);
 
 
-    document.getElementById("outMatch").innerText=
-    selectedMatch;
+/* Ticket information */
 
-    document.getElementById("outDate").innerText=
-    selectedDate;
+document.getElementById("ticketMatch")
+.innerText=selectedMatch.match;
 
-    document.getElementById("outTime").innerText=
-    selectedTime;
+document.getElementById("ticketDate")
+.innerText=selectedMatch.date;
 
-    document.getElementById("outStadium").innerText=
-    selectedStadium;
+document.getElementById("ticketTime")
+.innerText=selectedMatch.time;
 
-    document.getElementById("outName").innerText=
-    first+" "+last;
+document.getElementById("ticketStadium")
+.innerText=selectedMatch.stadium;
 
-    document.getElementById("outType").innerText=
-    type;
+document.getElementById("ticketHolder")
+.innerText=first+" "+last;
 
-    document.getElementById("outZone").innerText=
-    zone;
+document.getElementById("ticketTypeOut")
+.innerText=type;
 
-    document.getElementById("outPrice").innerText=
-    price;
+document.getElementById("ticketZone")
+.innerText=zone;
 
-    document.getElementById("outId").innerText=
-    ticketId;
+document.getElementById("ticketPrice")
+.innerText=price;
 
-
-    const qrData=
-    "FABL ROBLOX LEAGUE | "+
-    ticketId+" | "+
-    selectedMatch+" | "+
-    selectedDate+" | "+
-    first+" "+last+" | "+
-    type+" | "+zone;
+document.getElementById("ticketCode")
+.innerText=code;
 
 
-    document.getElementById("qrCode").src=
-    "https://api.qrserver.com/v1/create-qr-code/?size=250x250&data="+
-    encodeURIComponent(qrData);
+/* =========================
+   QR
+========================= */
+
+const mapURL=maps[selectedMatch.map];
+
+const qrURL=
+"https://api.qrserver.com/v1/create-qr-code/?size=300x300&data="+
+encodeURIComponent(mapURL);
+
+document.getElementById("qr").src=qrURL;
 
 
-    closeForm();
+/* =========================
+   SAVE TICKET
+========================= */
 
-    document
-    .getElementById("ticketOverlay")
-    .classList.add("show");
+const ticket={
+
+code:code,
+
+match:selectedMatch.match,
+
+date:selectedMatch.date,
+
+time:selectedMatch.time,
+
+stadium:selectedMatch.stadium,
+
+holder:first+" "+last,
+
+type:type,
+
+zone:zone,
+
+price:price,
+
+map:selectedMatch.map
+
+};
+
+localStorage.setItem(
+"FABL_LAST_TICKET",
+JSON.stringify(ticket)
+);
+
+
+closeForm();
+
+document.getElementById("ticketOverlay")
+.classList.add("show");
+
 }
 
+
+/* =========================
+   CLOSE TICKET
+========================= */
 
 function closeTicket(){
 
-    document
-    .getElementById("ticketOverlay")
-    .classList.remove("show");
+document.getElementById("ticketOverlay")
+.classList.remove("show");
+
 }
 
 
-/* PREDICTIONS */
+/* =========================
+   PREDICTIONS
+========================= */
 
-function updateWinnerOptions(){
+function changeTeams(){
 
-    const match=
-    document.getElementById("predictionMatch").value;
+const match=
+document.getElementById("predictionMatch").value;
 
-    const winner=
-    document.getElementById("winner");
+const teams=
+match.split(" VS ");
 
-    const teams=
-    match.split(" VS ");
+const winner=
+document.getElementById("winner");
 
-    winner.innerHTML="";
+winner.innerHTML="";
 
+const a=document.createElement("option");
 
-    const team1=
-    document.createElement("option");
+a.value=teams[0];
 
-    team1.value=teams[0];
-    team1.textContent=teams[0]+" WIN";
+a.innerText=teams[0]+" WIN";
 
+const draw=document.createElement("option");
 
-    const draw=
-    document.createElement("option");
+draw.value="DRAW";
 
-    draw.value="DRAW";
-    draw.textContent="DRAW";
+draw.innerText="DRAW";
 
+const b=document.createElement("option");
 
-    const team2=
-    document.createElement("option");
+b.value=teams[1];
 
-    team2.value=teams[1];
-    team2.textContent=teams[1]+" WIN";
+b.innerText=teams[1]+" WIN";
 
+winner.appendChild(a);
 
-    winner.appendChild(team1);
-    winner.appendChild(draw);
-    winner.appendChild(team2);
+winner.appendChild(draw);
+
+winner.appendChild(b);
+
 }
 
 
-/* SAVE */
+/* =========================
+   LOAD PREDICTIONS
+========================= */
 
 function getPredictions(){
 
-    const saved=
-    localStorage.getItem("FABL_PREDICTIONS");
+try{
 
-    if(!saved) return [];
+return JSON.parse(
+localStorage.getItem("FABL_PREDICTIONS")
+)||[];
 
-    try{
-        return JSON.parse(saved);
-    }catch{
-        return [];
-    }
+}catch{
+
+return[];
+
+}
+
 }
 
 
-function savePredictions(predictions){
+/* =========================
+   SAVE PREDICTION
+========================= */
 
-    localStorage.setItem(
-        "FABL_PREDICTIONS",
-        JSON.stringify(predictions)
-    );
+function savePrediction(){
+
+const username=
+document.getElementById("discord")
+.value.trim();
+
+const match=
+document.getElementById("predictionMatch")
+.value;
+
+const winner=
+document.getElementById("winner")
+.value;
+
+const score1=
+document.getElementById("score1")
+.value;
+
+const score2=
+document.getElementById("score2")
+.value;
+
+
+if(!username){
+
+alert("Please enter your Discord Username.");
+
+return;
+
 }
 
 
-/* SUBMIT */
+if(score1==="" || score2===""){
 
-function submitPrediction(){
+alert("Please enter your score.");
 
-    const username=
-    document.getElementById("discordUsername")
-    .value.trim();
+return;
 
-    const match=
-    document.getElementById("predictionMatch")
-    .value;
-
-    const winner=
-    document.getElementById("winner")
-    .value;
-
-    const homeScore=
-    document.getElementById("homeScore")
-    .value;
-
-    const awayScore=
-    document.getElementById("awayScore")
-    .value;
-
-
-    if(!username){
-
-        alert("Please enter your Discord Username.");
-
-        return;
-    }
-
-
-    if(homeScore==="" || awayScore===""){
-
-        alert("Please enter your score prediction.");
-
-        return;
-    }
-
-
-    const predictions=
-    getPredictions();
-
-
-    predictions.push({
-
-        username:username,
-        match:match,
-        winner:winner,
-        homeScore:homeScore,
-        awayScore:awayScore,
-        date:new Date().toISOString()
-
-    });
-
-
-    savePredictions(predictions);
-
-    displayPredictions();
-
-
-    document.getElementById("discordUsername").value="";
-    document.getElementById("homeScore").value="";
-    document.getElementById("awayScore").value="";
-
-
-    alert("Prediction saved successfully! 🔮");
 }
 
 
-/* DISPLAY */
+const predictions=getPredictions();
+
+
+/*
+   One prediction per username
+   for each match.
+*/
+
+const already=
+predictions.some(p=>
+p.username.toLowerCase()===username.toLowerCase()
+&&
+p.match===match
+);
+
+
+if(already){
+
+alert(
+"You already have a prediction for this match."
+);
+
+return;
+
+}
+
+
+predictions.push({
+
+username:username,
+
+match:match,
+
+winner:winner,
+
+score1:score1,
+
+score2:score2
+
+});
+
+
+localStorage.setItem(
+"FABL_PREDICTIONS",
+JSON.stringify(predictions)
+);
+
+
+document.getElementById("discord").value="";
+
+document.getElementById("score1").value="";
+
+document.getElementById("score2").value="";
+
+
+displayPredictions();
+
+
+alert("Prediction saved successfully! 🔮");
+
+}
+
+
+/* =========================
+   DISPLAY
+========================= */
 
 function displayPredictions(){
 
-    const board=
-    document.getElementById("predictionBoard");
+const list=
+document.getElementById("predictionList");
 
-    const predictions=
-    getPredictions();
-
-
-    if(predictions.length===0){
-
-        board.innerHTML=
-        '<p style="color:#8f9db3;text-align:center;">No predictions yet.</p>';
-
-        return;
-    }
+const predictions=getPredictions();
 
 
-    board.innerHTML="";
+if(predictions.length===0){
 
+list.innerHTML=
+"<p style='color:#8e9db1'>No predictions yet.</p>";
 
-    predictions.slice().reverse().forEach(function(p){
+return;
 
-        const card=
-        document.createElement("div");
-
-        card.className="prediction-card";
-
-
-        card.innerHTML=
-
-        "<div class='prediction-user'>"+
-        "👤 "+escapeHTML(p.username)+
-        "</div>"+
-
-        "<div class='prediction-result'>"+
-        "⚽ "+escapeHTML(p.match)+
-        "<br>"+
-        "🏆 Prediction: <strong>"+
-        escapeHTML(p.winner)+
-        "</strong>"+
-        "<br>"+
-        "📊 Score: <strong>"+
-        escapeHTML(p.homeScore)+
-        " - "+
-        escapeHTML(p.awayScore)+
-        "</strong>"+
-        "</div>";
-
-
-        board.appendChild(card);
-
-    });
 }
 
 
-/* SECURITY */
+list.innerHTML="";
+
+
+predictions
+.slice()
+.reverse()
+.forEach(p=>{
+
+const div=
+document.createElement("div");
+
+div.className="prediction";
+
+
+div.innerHTML=
+
+"<div class='user'>👤 "+
+escapeHTML(p.username)+
+"</div>"+
+
+"<div>⚽ "+
+escapeHTML(p.match)+
+"</div>"+
+
+"<div>🏆 "+
+escapeHTML(p.winner)+
+"</div>"+
+
+"<div>📊 "+
+escapeHTML(p.score1)+
+" - "+
+escapeHTML(p.score2)+
+"</div>";
+
+
+list.appendChild(div);
+
+});
+
+}
+
+
+/* =========================
+   SECURITY
+========================= */
 
 function escapeHTML(text){
 
-    const div=document.createElement("div");
+const div=
+document.createElement("div");
 
-    div.textContent=text;
+div.textContent=text;
 
-    return div.innerHTML;
+return div.innerHTML;
+
 }
 
 
-/* START */
+/* =========================
+   START
+========================= */
 
-updateWinnerOptions();
+changeTeams();
 
 displayPredictions();
 
 </script>
 
 </body>
-    </html>
+                                  </html>
