@@ -3,354 +3,388 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FABL | Match Center</title>
+
+<title>FABL • REGS</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --bg:#05070b;
+    --card:#0d1118;
+    --card2:#111722;
+    --border:#202936;
+    --text:#ffffff;
+    --muted:#8d98a8;
+    --accent:#ffffff;
+}
 
 body{
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:#05080f;
-    color:#fff;
+    min-height:100vh;
+    font-family:Inter,Arial,Helvetica,sans-serif;
+    color:var(--text);
+    background:
+        radial-gradient(circle at 50% -10%,#263445 0%,transparent 35%),
+        radial-gradient(circle at 0% 100%,#101722 0%,transparent 35%),
+        var(--bg);
 }
+
+/* ================= HEADER ================= */
 
 header{
     text-align:center;
-    padding:35px 15px;
-    background:linear-gradient(135deg,#08101d,#10284a);
-    border-bottom:1px solid #29466e;
+    padding:45px 20px 25px;
 }
 
-header img{
-    width:90px;
-    height:90px;
+.logo{
+    width:100px;
+    height:100px;
+    object-fit:contain;
     border-radius:50%;
-    object-fit:cover;
+    background:#fff;
+    padding:7px;
+    box-shadow:
+        0 0 0 1px #333,
+        0 15px 50px rgba(0,0,0,.6);
+    margin-bottom:20px;
 }
 
-header h1{
-    margin:15px 0 5px;
+.small-title{
+    font-size:12px;
+    letter-spacing:5px;
+    color:#8d98a8;
+    margin-bottom:10px;
 }
 
-header p{
-    color:#9aaac0;
+h1{
+    font-size:42px;
+    font-weight:900;
+    letter-spacing:-1px;
 }
+
+.description{
+    color:var(--muted);
+    margin-top:10px;
+    font-size:14px;
+}
+
+/* ================= CONTAINER ================= */
 
 .container{
-    max-width:950px;
+    width:100%;
+    max-width:1050px;
     margin:auto;
-    padding:25px 15px 60px;
+    padding:25px 20px 60px;
 }
 
-.title{
-    text-align:center;
-    margin:10px 0 25px;
+/* ================= HOME ================= */
+
+.home-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:18px;
 }
 
-.day{
-    background:#101b2d;
-    border:1px solid #29415f;
-    padding:15px;
-    border-radius:12px;
+.home-title h2{
     font-size:20px;
-    font-weight:bold;
-    margin-bottom:15px;
 }
 
-.match{
-    background:#0d1522;
-    border:1px solid #253b59;
-    border-radius:16px;
-    padding:22px;
-    margin-bottom:14px;
-    text-align:center;
-}
-
-.match:hover{
-    border-color:#1687ff;
-}
-
-.date{
-    color:#8e9db1;
+.home-title span{
+    color:var(--muted);
     font-size:13px;
 }
 
 .teams{
-    font-size:24px;
-    font-weight:bold;
-    margin:12px 0;
-}
-
-.time{
-    color:#56aaff;
-    font-weight:bold;
-}
-
-.stadium{
-    color:#9caabd;
-    margin:8px 0 18px;
-}
-
-button{
-    border:0;
-    border-radius:9px;
-    padding:12px 20px;
-    background:#087fff;
-    color:#fff;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-button:hover{
-    opacity:.85;
-}
-
-/* PREDICTIONS */
-
-.predictions{
-    margin-top:40px;
-    background:#0d1522;
-    border:1px solid #253b59;
-    border-radius:18px;
-    padding:25px;
-}
-
-.predictions h2{
-    text-align:center;
-}
-
-.sub{
-    text-align:center;
-    color:#8e9db1;
-    margin-bottom:25px;
-}
-
-label{
-    display:block;
-    margin:15px 0 7px;
-    font-weight:bold;
-}
-
-input,select{
-    width:100%;
-    padding:13px;
-    background:#060b13;
-    color:#fff;
-    border:1px solid #304764;
-    border-radius:8px;
-    outline:none;
-}
-
-.score{
-    display:flex;
-    gap:10px;
-    align-items:center;
-}
-
-.score input{
-    text-align:center;
-}
-
-.full{
-    width:100%;
-    margin-top:18px;
-}
-
-.prediction-list{
-    margin-top:30px;
-    border-top:1px solid #253b59;
-    padding-top:20px;
-}
-
-.prediction{
-    background:#070d16;
-    border:1px solid #243850;
-    padding:14px;
-    border-radius:9px;
-    margin-top:10px;
-}
-
-.user{
-    color:#55aaff;
-    font-weight:bold;
-}
-
-/* OVERLAY */
-
-.overlay{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.85);
-    z-index:100;
-    justify-content:center;
-    align-items:center;
-    padding:15px;
-    overflow:auto;
-}
-
-.overlay.show{
-    display:flex;
-}
-
-.box{
-    width:100%;
-    max-width:450px;
-    background:#101a29;
-    border:1px solid #304764;
-    border-radius:17px;
-    padding:25px;
-}
-
-.box h2{
-    text-align:center;
-}
-
-.close{
-    width:100%;
-    margin-top:10px;
-    background:#263449;
-}
-
-/* TICKET */
-
-.ticket-overlay{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.9);
-    z-index:200;
-    justify-content:center;
-    align-items:center;
-    padding:15px;
-    overflow:auto;
-}
-
-.ticket-overlay.show{
-    display:flex;
-}
-
-.ticket{
-    width:100%;
-    max-width:720px;
-    background:#fff;
-    color:#111;
-    border-radius:18px;
-    overflow:hidden;
-}
-
-.ticket-header{
-    background:#0b1320;
-    color:#fff;
-    padding:22px;
-    display:flex;
-    align-items:center;
-    gap:15px;
-}
-
-.ticket-header img{
-    width:60px;
-    height:60px;
-    border-radius:50%;
-    object-fit:cover;
-}
-
-.ticket-header h2{
-    margin:0 0 5px;
-}
-
-.ticket-header small{
-    color:#9aaac0;
-}
-
-.ticket-content{
     display:grid;
-    grid-template-columns:1fr 190px;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
 }
 
-.ticket-info{
+.team-card{
+    position:relative;
+    min-height:190px;
     padding:25px;
+    border:1px solid var(--border);
+    border-radius:20px;
+    background:
+        linear-gradient(145deg,
+        rgba(255,255,255,.055),
+        rgba(255,255,255,.015));
+    cursor:pointer;
+    overflow:hidden;
+    transition:.25s ease;
 }
 
-.ticket-match{
-    font-size:26px;
-    font-weight:bold;
-    margin-bottom:18px;
+.team-card::before{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    right:-80px;
+    bottom:-90px;
+    background:#fff;
+    opacity:.035;
+    border-radius:50%;
 }
 
-.info{
-    line-height:2;
+.team-card:hover{
+    transform:translateY(-5px);
+    border-color:#536174;
+    box-shadow:0 20px 60px rgba(0,0,0,.35);
 }
 
-.info strong{
-    display:inline-block;
-    width:90px;
+.team-number{
+    color:#687587;
+    font-size:12px;
+    letter-spacing:2px;
 }
 
-.ticket-qr{
-    border-left:2px dashed #aaa;
-    padding:20px;
-    text-align:center;
+.team-name{
+    font-size:27px;
+    font-weight:900;
+    margin-top:25px;
 }
 
-.ticket-qr img{
-    width:145px;
-    height:145px;
+.team-regs{
+    color:#8e99a8;
+    font-size:13px;
+    margin-top:7px;
 }
 
-.scan{
-    font-weight:bold;
+.team-arrow{
+    position:absolute;
+    right:22px;
+    bottom:22px;
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    background:#fff;
+    color:#000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:18px;
+}
+
+/* ================= TEAM PAGE ================= */
+
+.team-page{
+    display:none;
+}
+
+.team-page.active{
+    display:block;
+}
+
+.back-btn{
+    border:1px solid #303a48;
+    background:#0b1017;
+    color:white;
+    border-radius:10px;
+    padding:11px 16px;
+    cursor:pointer;
+    margin-bottom:20px;
+    transition:.2s;
+}
+
+.back-btn:hover{
+    background:#171e29;
+}
+
+.team-header{
+    position:relative;
+    padding:28px;
+    border:1px solid var(--border);
+    border-radius:20px;
+    background:
+        linear-gradient(135deg,
+        rgba(255,255,255,.06),
+        rgba(255,255,255,.015));
+    margin-bottom:20px;
+}
+
+.team-header-label{
+    color:#7d8999;
+    font-size:11px;
     letter-spacing:3px;
 }
 
-.ticket-code{
-    font-family:monospace;
-    font-size:12px;
-    color:#555;
-    margin-top:10px;
-    word-break:break-all;
+.team-header h2{
+    font-size:34px;
+    margin-top:8px;
 }
 
-.ticket-note{
-    margin-top:20px;
-    padding:13px;
-    background:#edf5ff;
-    color:#174b80;
-    border-radius:8px;
+.president{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:15px;
+    padding:9px 13px;
+    background:#070a0f;
+    border:1px solid #283240;
+    border-radius:9px;
+    color:#d9dee5;
     font-size:13px;
 }
 
-.ticket-footer{
-    border-top:1px solid #ddd;
-    padding:15px 25px;
-    color:#777;
-    font-size:12px;
+.president b{
+    color:white;
+}
+
+/* ================= TABLE ================= */
+
+.table-box{
+    border:1px solid var(--border);
+    border-radius:18px;
+    overflow:hidden;
+    background:#0b0f15;
+}
+
+.table-top{
+    padding:17px 20px;
+    border-bottom:1px solid var(--border);
     display:flex;
     justify-content:space-between;
+    align-items:center;
 }
 
-.close-ticket{
-    margin:0 25px 22px;
-    background:#111;
+.table-top h3{
+    font-size:16px;
 }
 
-@media(max-width:600px){
-    .teams{font-size:21px}
+.player-count{
+    color:#7f8b9b;
+    font-size:12px;
+}
 
-    .ticket-content{
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+thead{
+    background:#111720;
+}
+
+th{
+    text-align:left;
+    padding:15px 20px;
+    color:#7f8b9b;
+    font-size:11px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+}
+
+td{
+    padding:17px 20px;
+    border-top:1px solid #1b232e;
+    font-size:14px;
+}
+
+tbody tr{
+    transition:.18s;
+}
+
+tbody tr:hover{
+    background:#111720;
+}
+
+.player{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-weight:bold;
+}
+
+.avatar{
+    width:36px;
+    height:36px;
+    border-radius:10px;
+    background:#1b2430;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:13px;
+    color:#dce2e9;
+}
+
+.season{
+    display:inline-flex;
+    min-width:45px;
+    justify-content:center;
+    padding:6px 10px;
+    border-radius:7px;
+    background:#161e29;
+    border:1px solid #283342;
+    font-weight:bold;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    text-align:center;
+    padding:25px;
+    color:#626e7e;
+    font-size:11px;
+    letter-spacing:1px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:800px){
+
+    .teams{
         grid-template-columns:1fr;
     }
 
-    .ticket-qr{
-        border-left:0;
-        border-top:2px dashed #aaa;
+    h1{
+        font-size:34px;
     }
 
-    .ticket-footer{
-        display:block;
-        line-height:1.8;
+}
+
+@media(max-width:550px){
+
+    header{
+        padding-top:30px;
     }
+
+    .logo{
+        width:82px;
+        height:82px;
+    }
+
+    h1{
+        font-size:29px;
+    }
+
+    .container{
+        padding:20px 12px 50px;
+    }
+
+    .team-header h2{
+        font-size:28px;
+    }
+
+    th,
+    td{
+        padding:13px 12px;
+    }
+
+    .player{
+        gap:8px;
+    }
+
+    .avatar{
+        width:32px;
+        height:32px;
+    }
+
 }
 </style>
 </head>
@@ -359,850 +393,407 @@ input,select{
 
 <header>
 
-<img src="A90C106D-B234-4382-848B-47849D6568BC.jpg">
+<img
+    class="logo"
+    src="A90C106D-B234-4382-848B-47849D6568BC.jpg"
+    alt="FABL Logo"
+>
 
-<h1>FABL ROBLOX LEAGUE</h1>
+<div class="small-title">
+    FABL OFFICIAL
+</div>
 
-<p>Official Match Center</p>
+<h1>REGS DATABASE</h1>
+
+<p class="description">
+    Registered players • Teams • Seasons
+</p>
 
 </header>
 
 
-<div class="container">
+<main class="container">
 
-<h2 class="title">⚽ MATCHES</h2>
+<!-- ================= HOME ================= -->
 
-<div class="day">🏆 JOURNÉE 2</div>
+<section id="homePage">
+
+<div class="home-title">
+    <h2>Registered Teams</h2>
+    <span>3 TEAMS</span>
+</div>
+
+<div class="teams">
+
+<div class="team-card" onclick="openTeam('irt')">
+
+<div class="team-number">01</div>
+
+<div class="team-name">
+    REGS IRT
+</div>
+
+<div class="team-regs">
+    Registered Players
+</div>
+
+<div class="team-arrow">
+    →
+</div>
+
+</div>
 
 
-<!-- MATCH 1 -->
+<div class="team-card" onclick="openTeam('ass')">
 
-<div class="match">
+<div class="team-number">02</div>
 
-<div class="date">Mardi 11 Aout 2026</div>
+<div class="team-name">
+    REGS ASS
+</div>
 
-<div class="teams">ASS 🆚 OCS</div>
+<div class="team-regs">
+    Registered Players
+</div>
 
-<div class="time">21:00</div>
+<div class="team-arrow">
+    →
+</div>
 
-<div class="stadium">🏟️ FABL ASS</div>
+</div>
 
-<button onclick="openTicketForm(
-'ASS VS OCS',
-'11 Aout 2026',
-'21:00',
-'FABL ASS',
-'ASS'
-)">
-🎟️ GET TICKET
+
+<div class="team-card" onclick="openTeam('husa')">
+
+<div class="team-number">03</div>
+
+<div class="team-name">
+    REGS HUSA
+</div>
+
+<div class="team-regs">
+    Registered Players
+</div>
+
+<div class="team-arrow">
+    →
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= IRT ================= -->
+
+<section id="irt" class="team-page">
+
+<button class="back-btn" onclick="goHome()">
+    ← BACK TO TEAMS
 </button>
 
+<div class="team-header">
+
+<div class="team-header-label">
+    REGISTERED TEAM
 </div>
 
+<h2>REGS IRT</h2>
 
-<!-- MATCH 2 -->
+<div class="president">
+    👑 Président:
+    <b>@riyadaskari</b>
+</div>
 
-<div class="match">
+</div>
 
-<div class="date">Mardi 11 Aout 2026</div>
+<div class="table-box">
 
-<div class="teams">KACM 🆚 KAC</div>
+<div class="table-top">
 
-<div class="time">23:00</div>
+<h3>Players</h3>
 
-<div class="stadium">🏟️ FABL Neutral</div>
+<span class="player-count">
+    7 PLAYERS
+</span>
 
-<button onclick="openTicketForm(
-'KACM VS KAC',
-'11 Aout 2026',
-'23:00',
-'FABL Neutral',
-'NEUTRAL'
-)">
-🎟️ GET TICKET
+</div>
+
+<table>
+
+<thead>
+<tr>
+<th>USER ROBLOX</th>
+<th>SEASON</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td><div class="player"><div class="avatar">U</div>Uar_youssef</div></td>
+<td><span class="season">3</span></td>
+</tr>
+
+<tr>
+<td><div class="player"><div class="avatar">R</div>Rayan</div></td>
+<td><span class="season">2</span></td>
+</tr>
+
+<tr>
+<td><div class="player"><div class="avatar">C</div>Capouh_uw</div></td>
+<td><span class="season">3</span></td>
+</tr>
+
+<tr>
+<td><div class="player"><div class="avatar">M</div>Marouane_capo</div></td>
+<td><span class="season">1</span></td>
+</tr>
+
+<tr>
+<td><div class="player"><div class="avatar">A</div>Abdellahcapo</div></td>
+<td><span class="season">2</span></td>
+</tr>
+
+<tr>
+<td><div class="player"><div class="avatar">P</div>poutchare0</div></td>
+<td><span class="season">3</span></td>
+</tr>
+
+<tr>
+<td><div class="player"><div class="avatar">A</div>abdlraforkacm2006</div></td>
+<td><span class="season">2</span></td>
+</tr>
+
+</tbody>
+</table>
+
+</div>
+
+</section>
+
+
+<!-- ================= ASS ================= -->
+
+<section id="ass" class="team-page">
+
+<button class="back-btn" onclick="goHome()">
+    ← BACK TO TEAMS
 </button>
 
+<div class="team-header">
+
+<div class="team-header-label">
+    REGISTERED TEAM
 </div>
 
+<h2>REGS ASS</h2>
 
-<!-- MATCH 3 -->
+<div class="president">
+    👑 Président:
+    <b>spinoza_fabl</b>
+</div>
 
-<div class="match">
+</div>
 
-<div class="date">Mercredi 12 Aout 2026</div>
+<div class="table-box">
 
-<div class="teams">WAC 🆚 MAS</div>
+<div class="table-top">
 
-<div class="time">21:00</div>
+<h3>Players</h3>
 
-<div class="stadium">🏟️ FABL Neutral</div>
+<span class="player-count">
+    6 PLAYERS
+</span>
 
-<button onclick="openTicketForm(
-'WAC VS MAS',
-'12 Aout 2026',
-'21:00',
-'FABL Neutral',
-'NEUTRAL'
-)">
-🎟️ GET TICKET
+</div>
+
+<table>
+
+<thead>
+<tr>
+<th>USER ROBLOX</th>
+<th>SEASON</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td><div class="player"><div class="avatar">R</div>reda_offisiel</div></td>
+<td><span class="season">3</span></td>
+</tr>
+
+<tr>
+<td><div class="player"><div class="avatar">B</div>bo3o</div></td>
+<td><span class="season">2</span></td>
+</tr>
+
+<tr>
+<td><div class="player"><div class="avatar">I</div>itsdfila</div></td>
+<td><span class="season">1</span></td>
+</tr>
+
+<tr>
+<td><div class="player"><div class="avatar">M</div>magana_zone</div></td>
+<td><span class="season">3</span></td>
+</tr>
+
+<tr>
+<td><div class="player"><div class="avatar">A</div>adnanegoko</div></td>
+<td><span class="season">2</span></td>
+</tr>
+
+<tr>
+<td><div class="player"><div class="avatar">M</div>mvrvvvvn_07</div></td>
+<td><span class="season">1</span></td>
+</tr>
+
+</tbody>
+</table>
+
+</div>
+
+</section>
+
+
+<!-- ================= HUSA ================= -->
+
+<section id="husa" class="team-page">
+
+<button class="back-btn" onclick="goHome()">
+    ← BACK TO TEAMS
 </button>
 
+<div class="team-header">
+
+<div class="team-header-label">
+    REGISTERED TEAM
 </div>
 
+<h2>REGS HUSA</h2>
 
-<!-- MATCH 4 -->
-
-<div class="match">
-
-<div class="date">Mercredi 12 Aout 2026</div>
-
-<div class="teams">ASFAR 🆚 RCA</div>
-
-<div class="time">23:00</div>
-
-<div class="stadium">🏟️ FABL ASS</div>
-
-<button onclick="openTicketForm(
-'ASFAR VS RCA',
-'12 Aout 2026',
-'23:00',
-'FABL ASS',
-'ASS'
-)">
-🎟️ GET TICKET
-</button>
-
-</div>
-
-
-<!-- MATCH 5 -->
-
-<div class="match">
-
-<div class="date">Jeudi 13 Aout 2026</div>
-
-<div class="teams">IRT 🆚 CODM</div>
-
-<div class="time">21:30</div>
-
-<div class="stadium">🏟️ FABL OCS</div>
-
-<button onclick="openTicketForm(
-'IRT VS CODM',
-'13 Aout 2026',
-'21:30',
-'FABL OCS',
-'ELMASSIRA'
-)">
-🎟️ GET TICKET
-</button>
-
-</div>
-
-
-<!-- PREDICTIONS -->
-
-<div class="predictions">
-
-<h2>🔮 PREDICTIONS</h2>
-
-<p class="sub">
-Write your Discord username before making your prediction.
-</p>
-
-<label>Discord Username</label>
-
-<input
-id="discord"
-placeholder="@username"
->
-
-
-<label>Choose Match</label>
-
-<select id="predictionMatch" onchange="changeTeams()">
-
-<option>ASS VS OCS</option>
-<option>KACM VS KAC</option>
-<option>WAC VS MAS</option>
-<option>ASFAR VS RCA</option>
-<option>IRT VS CODM</option>
-
-</select>
-
-
-<label>Who will win?</label>
-
-<select id="winner"></select>
-
-
-<label>Score Prediction</label>
-
-<div class="score">
-
-<input id="score1" type="number" min="0" placeholder="0">
-
-<b>VS</b>
-
-<input id="score2" type="number" min="0" placeholder="0">
-
-</div>
-
-
-<button class="full" onclick="savePrediction()">
-🔮 SAVE PREDICTION
-</button>
-
-
-<div class="prediction-list">
-
-<h3>📊 Predictions</h3>
-
-<div id="predictionList"></div>
-
+<div class="president">
+    👑 Président:
+    <b>the_killer504</b>
 </div>
 
 </div>
 
-</div>
+<div class="table-box">
 
+<div class="table-top">
 
-<!-- TICKET FORM -->
+<h3>Players</h3>
 
-<div class="overlay" id="form">
-
-<div class="box">
-
-<h2>🎟️ GET YOUR TICKET</h2>
-
-<label>First Name</label>
-
-<input id="firstName" placeholder="First name">
-
-
-<label>Last Name</label>
-
-<input id="lastName" placeholder="Last name">
-
-
-<label>Ticket Type</label>
-
-<select id="ticketType">
-
-<option value="">Choose ticket</option>
-<option value="ULTRAS">🔥 ULTRAS — 10 R$</option>
-<option value="TRIBUNE">🏟️ TRIBUNE — 20 R$</option>
-<option value="VIP">👑 VIP — 40 R$</option>
-
-</select>
-
-
-<label>Zone</label>
-
-<select id="zone">
-
-<option value="">Choose zone</option>
-<option>SUD</option>
-<option>NORD</option>
-<option>NEUTRE</option>
-
-</select>
-
-
-<button class="full" type="button" onclick="generateTicket()">
-🎟️ GENERATE TICKET
-</button>
-
-
-<button class="close" type="button" onclick="closeForm()">
-CANCEL
-</button>
+<span class="player-count">
+    6 PLAYERS
+</span>
 
 </div>
 
-</div>
+<table>
 
+<thead>
+<tr>
+<th>USER ROBLOX</th>
+<th>SEASON</th>
+</tr>
+</thead>
 
-<!-- TICKET -->
+<tbody>
 
-<div class="ticket-overlay" id="ticketOverlay">
+<tr>
+<td><div class="player"><div class="avatar">I</div>Itosbemo</div></td>
+<td><span class="season">3</span></td>
+</tr>
 
-<div class="ticket">
+<tr>
+<td><div class="player"><div class="avatar">D</div>Dru_ahmed</div></td>
+<td><span class="season">2</span></td>
+</tr>
 
-<div class="ticket-header">
+<tr>
+<td><div class="player"><div class="avatar">J</div>Jadobbal0</div></td>
+<td><span class="season">3</span></td>
+</tr>
 
-<img src="A90C106D-B234-4382-848B-47849D6568BC.jpg">
+<tr>
+<td><div class="player"><div class="avatar">U</div>Uh_ilyass</div></td>
+<td><span class="season">1</span></td>
+</tr>
 
-<div>
+<tr>
+<td><div class="player"><div class="avatar">Z</div>Zezo</div></td>
+<td><span class="season">2</span></td>
+</tr>
 
-<h2>FABL ROBLOX LEAGUE</h2>
+<tr>
+<td><div class="player"><div class="avatar">S</div>Staika</div></td>
+<td><span class="season">3</span></td>
+</tr>
 
-<small>OFFICIAL MATCH TICKET</small>
-
-</div>
-
-</div>
-
-
-<div class="ticket-content">
-
-<div class="ticket-info">
-
-<div class="ticket-match" id="ticketMatch">
-MATCH
-</div>
-
-<div class="info">
-
-<div>
-<strong>📅 Date:</strong>
-<span id="ticketDate"></span>
-</div>
-
-<div>
-<strong>⏰ Time:</strong>
-<span id="ticketTime"></span>
-</div>
-
-<div>
-<strong>🏟️ Stadium:</strong>
-<span id="ticketStadium"></span>
-</div>
-
-<div>
-<strong>👤 Holder:</strong>
-<span id="ticketHolder"></span>
-</div>
-
-<div>
-<strong>🎫 Type:</strong>
-<span id="ticketTypeOut"></span>
-</div>
-
-<div>
-<strong>📍 Zone:</strong>
-<span id="ticketZone"></span>
-</div>
-
-<div>
-<strong>💰 Price:</strong>
-<span id="ticketPrice"></span> R$
-</div>
+</tbody>
+</table>
 
 </div>
 
+</section>
 
-<div class="ticket-note">
-
-🎮 Scan the QR code to enter the Roblox map of this match.
-
-</div>
-
-</div>
+</main>
 
 
-<div class="ticket-qr">
-
-<img id="qr">
-
-<div class="scan">SCAN</div>
-
-<div class="ticket-code" id="ticketCode"></div>
-
-</div>
-
-</div>
-
-
-<div class="ticket-footer">
-
-<span>FABL • JOURNÉE 2</span>
-
-<span>ROBLOX LEAGUE • 2026</span>
-
-</div>
-
-
-<button class="close-ticket" onclick="closeTicket()">
-CLOSE TICKET
-</button>
-
-</div>
-
-</div>
+<footer>
+    FABL • OFFICIAL REGS DATABASE
+</footer>
 
 
 <script>
 
-/* =========================
-   ROBLOX MAPS
-========================= */
+function openTeam(team){
 
-const maps = {
+    document
+    .getElementById("homePage")
+    .style.display = "none";
 
-ASS:
-"https://www.roblox.com/share?code=7a679db210abf04c841900db93958ce8&type=ExperienceDetails&stamp=1785437176622",
+    document
+    .querySelectorAll(".team-page")
+    .forEach(page=>{
+        page.classList.remove("active");
+    });
 
-NEUTRAL:
-"https://www.roblox.com/share?code=b12432dfe4d8f34b89eaf17817c75307&type=ExperienceDetails&stamp=1786218593563",
+    document
+    .getElementById(team)
+    .classList.add("active");
 
-ELMASSIRA:
-"https://www.roblox.com/games/123317744215347/Fabl-stadium-el-massira"
-
-};
-
-
-/* =========================
-   SELECTED MATCH
-========================= */
-
-let selectedMatch={};
-
-
-/* =========================
-   OPEN FORM
-========================= */
-
-function openTicketForm(
-match,
-date,
-time,
-stadium,
-map
-){
-
-selectedMatch={
-match:match,
-date:date,
-time:time,
-stadium:stadium,
-map:map
-};
-
-document.getElementById("form")
-.classList.add("show");
-
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 }
 
 
-/* =========================
-   CLOSE FORM
-========================= */
+function goHome(){
 
-function closeForm(){
+    document
+    .querySelectorAll(".team-page")
+    .forEach(page=>{
+        page.classList.remove("active");
+    });
 
-document.getElementById("form")
-.classList.remove("show");
+    document
+    .getElementById("homePage")
+    .style.display = "block";
 
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 }
-
-
-/* =========================
-   GENERATE TICKET
-========================= */
-
-function generateTicket(){
-
-const first=
-document.getElementById("firstName").value.trim();
-
-const last=
-document.getElementById("lastName").value.trim();
-
-const type=
-document.getElementById("ticketType").value;
-
-const zone=
-document.getElementById("zone").value;
-
-
-if(!first || !last || !type || !zone){
-
-alert("Please complete all information.");
-
-return;
-
-}
-
-
-let price=0;
-
-if(type==="ULTRAS") price=10;
-
-if(type==="TRIBUNE") price=20;
-
-if(type==="VIP") price=40;
-
-
-const code=
-"FABL-"+
-Math.random()
-.toString(36)
-.substring(2,7)
-.toUpperCase()+
-"-"+
-Math.floor(1000+Math.random()*9000);
-
-
-/* Ticket information */
-
-document.getElementById("ticketMatch")
-.innerText=selectedMatch.match;
-
-document.getElementById("ticketDate")
-.innerText=selectedMatch.date;
-
-document.getElementById("ticketTime")
-.innerText=selectedMatch.time;
-
-document.getElementById("ticketStadium")
-.innerText=selectedMatch.stadium;
-
-document.getElementById("ticketHolder")
-.innerText=first+" "+last;
-
-document.getElementById("ticketTypeOut")
-.innerText=type;
-
-document.getElementById("ticketZone")
-.innerText=zone;
-
-document.getElementById("ticketPrice")
-.innerText=price;
-
-document.getElementById("ticketCode")
-.innerText=code;
-
-
-/* =========================
-   QR
-========================= */
-
-const mapURL=maps[selectedMatch.map];
-
-const qrURL=
-"https://api.qrserver.com/v1/create-qr-code/?size=300x300&data="+
-encodeURIComponent(mapURL);
-
-document.getElementById("qr").src=qrURL;
-
-
-/* =========================
-   SAVE TICKET
-========================= */
-
-const ticket={
-
-code:code,
-
-match:selectedMatch.match,
-
-date:selectedMatch.date,
-
-time:selectedMatch.time,
-
-stadium:selectedMatch.stadium,
-
-holder:first+" "+last,
-
-type:type,
-
-zone:zone,
-
-price:price,
-
-map:selectedMatch.map
-
-};
-
-localStorage.setItem(
-"FABL_LAST_TICKET",
-JSON.stringify(ticket)
-);
-
-
-closeForm();
-
-document.getElementById("ticketOverlay")
-.classList.add("show");
-
-}
-
-
-/* =========================
-   CLOSE TICKET
-========================= */
-
-function closeTicket(){
-
-document.getElementById("ticketOverlay")
-.classList.remove("show");
-
-}
-
-
-/* =========================
-   PREDICTIONS
-========================= */
-
-function changeTeams(){
-
-const match=
-document.getElementById("predictionMatch").value;
-
-const teams=
-match.split(" VS ");
-
-const winner=
-document.getElementById("winner");
-
-winner.innerHTML="";
-
-const a=document.createElement("option");
-
-a.value=teams[0];
-
-a.innerText=teams[0]+" WIN";
-
-const draw=document.createElement("option");
-
-draw.value="DRAW";
-
-draw.innerText="DRAW";
-
-const b=document.createElement("option");
-
-b.value=teams[1];
-
-b.innerText=teams[1]+" WIN";
-
-winner.appendChild(a);
-
-winner.appendChild(draw);
-
-winner.appendChild(b);
-
-}
-
-
-/* =========================
-   LOAD PREDICTIONS
-========================= */
-
-function getPredictions(){
-
-try{
-
-return JSON.parse(
-localStorage.getItem("FABL_PREDICTIONS")
-)||[];
-
-}catch{
-
-return[];
-
-}
-
-}
-
-
-/* =========================
-   SAVE PREDICTION
-========================= */
-
-function savePrediction(){
-
-const username=
-document.getElementById("discord")
-.value.trim();
-
-const match=
-document.getElementById("predictionMatch")
-.value;
-
-const winner=
-document.getElementById("winner")
-.value;
-
-const score1=
-document.getElementById("score1")
-.value;
-
-const score2=
-document.getElementById("score2")
-.value;
-
-
-if(!username){
-
-alert("Please enter your Discord Username.");
-
-return;
-
-}
-
-
-if(score1==="" || score2===""){
-
-alert("Please enter your score.");
-
-return;
-
-}
-
-
-const predictions=getPredictions();
-
-
-/*
-   One prediction per username
-   for each match.
-*/
-
-const already=
-predictions.some(p=>
-p.username.toLowerCase()===username.toLowerCase()
-&&
-p.match===match
-);
-
-
-if(already){
-
-alert(
-"You already have a prediction for this match."
-);
-
-return;
-
-}
-
-
-predictions.push({
-
-username:username,
-
-match:match,
-
-winner:winner,
-
-score1:score1,
-
-score2:score2
-
-});
-
-
-localStorage.setItem(
-"FABL_PREDICTIONS",
-JSON.stringify(predictions)
-);
-
-
-document.getElementById("discord").value="";
-
-document.getElementById("score1").value="";
-
-document.getElementById("score2").value="";
-
-
-displayPredictions();
-
-
-alert("Prediction saved successfully! 🔮");
-
-}
-
-
-/* =========================
-   DISPLAY
-========================= */
-
-function displayPredictions(){
-
-const list=
-document.getElementById("predictionList");
-
-const predictions=getPredictions();
-
-
-if(predictions.length===0){
-
-list.innerHTML=
-"<p style='color:#8e9db1'>No predictions yet.</p>";
-
-return;
-
-}
-
-
-list.innerHTML="";
-
-
-predictions
-.slice()
-.reverse()
-.forEach(p=>{
-
-const div=
-document.createElement("div");
-
-div.className="prediction";
-
-
-div.innerHTML=
-
-"<div class='user'>👤 "+
-escapeHTML(p.username)+
-"</div>"+
-
-"<div>⚽ "+
-escapeHTML(p.match)+
-"</div>"+
-
-"<div>🏆 "+
-escapeHTML(p.winner)+
-"</div>"+
-
-"<div>📊 "+
-escapeHTML(p.score1)+
-" - "+
-escapeHTML(p.score2)+
-"</div>";
-
-
-list.appendChild(div);
-
-});
-
-}
-
-
-/* =========================
-   SECURITY
-========================= */
-
-function escapeHTML(text){
-
-const div=
-document.createElement("div");
-
-div.textContent=text;
-
-return div.innerHTML;
-
-}
-
-
-/* =========================
-   START
-========================= */
-
-changeTeams();
-
-displayPredictions();
 
 </script>
 
 </body>
-                                  </html>
+        </html>
