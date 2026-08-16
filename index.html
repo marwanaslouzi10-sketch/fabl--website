@@ -1,32 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>FABL • REGS DATABASE</title>
 
 <style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
 :root{
     --bg:#05070b;
     --card:#0d1219;
     --card2:#111821;
     --border:#202b38;
-    --border2:#3a4657;
-    --text:#fff;
+    --border-light:#3a4657;
+    --text:#ffffff;
     --muted:#8995a5;
     --green:#65e6a8;
 }
 
+
+/* =====================================================
+   BODY
+===================================================== */
+
 body{
     min-height:100vh;
-    font-family:Inter,Arial,Helvetica,sans-serif;
+
+    font-family:
+        Inter,
+        Arial,
+        Helvetica,
+        sans-serif;
+
     color:var(--text);
 
     background:
@@ -35,16 +58,20 @@ body{
             #263548 0%,
             transparent 38%
         ),
+
         radial-gradient(
             circle at 0% 100%,
             #101a27 0%,
             transparent 35%
         ),
+
         var(--bg);
 }
 
 
-/* ================= HEADER ================= */
+/* =====================================================
+   HEADER
+===================================================== */
 
 header{
     text-align:center;
@@ -54,9 +81,13 @@ header{
 .logo{
     width:100px;
     height:100px;
+
     object-fit:contain;
+
     border-radius:50%;
+
     background:#fff;
+
     padding:7px;
 
     box-shadow:
@@ -68,67 +99,101 @@ header{
 
 .small-title{
     color:#8995a5;
+
     font-size:11px;
+
     font-weight:800;
+
     letter-spacing:5px;
+
     margin-bottom:10px;
 }
 
 h1{
     font-size:44px;
+
     font-weight:950;
+
     letter-spacing:-2px;
 }
 
 .description{
     color:var(--muted);
+
     font-size:14px;
+
     margin-top:10px;
 }
 
 .status{
     display:inline-flex;
+
     align-items:center;
+
     gap:8px;
 
     margin-top:17px;
+
     padding:7px 12px;
 
     border:1px solid var(--border);
+
     background:rgba(255,255,255,.025);
+
     border-radius:50px;
 
     color:#b5c0cc;
+
     font-size:10px;
+
     font-weight:800;
+
     letter-spacing:1px;
 }
 
 .status-dot{
     width:7px;
     height:7px;
+
     border-radius:50%;
+
     background:var(--green);
-    box-shadow:0 0 12px var(--green);
+
+    box-shadow:
+        0 0 12px var(--green);
 }
 
 
-/* ================= CONTAINER ================= */
+/* =====================================================
+   MAIN CONTAINER
+===================================================== */
 
 .container{
     width:100%;
+
     max-width:1050px;
+
     margin:auto;
-    padding:20px 20px 60px;
+
+    padding:
+        20px
+        20px
+        60px;
 }
 
 
-/* ================= STATS ================= */
+/* =====================================================
+   STATS
+===================================================== */
 
 .stats{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+        repeat(3,1fr);
+
     gap:14px;
+
     margin-bottom:35px;
 }
 
@@ -136,6 +201,7 @@ h1{
     padding:19px;
 
     border:1px solid var(--border);
+
     border-radius:16px;
 
     background:
@@ -148,42 +214,59 @@ h1{
 
 .stat-label{
     color:#788596;
+
     font-size:10px;
+
     font-weight:800;
+
     letter-spacing:1.5px;
+
     text-transform:uppercase;
 }
 
 .stat-number{
     font-size:30px;
+
     font-weight:950;
+
     margin-top:6px;
 }
 
 
-/* ================= TITLE ================= */
+/* =====================================================
+   HOME TITLE
+===================================================== */
 
 .home-title{
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
+
     margin-bottom:18px;
 }
 
 .home-title h2{
     font-size:20px;
+
     font-weight:900;
 }
 
 .home-title span{
     color:#788596;
+
     font-size:11px;
+
     font-weight:800;
+
     letter-spacing:1px;
 }
 
 
-/* ================= SEARCH ================= */
+/* =====================================================
+   SEARCH
+===================================================== */
 
 .search-box{
     margin-bottom:20px;
@@ -195,25 +278,39 @@ h1{
 
 .search-icon{
     position:absolute;
+
     left:15px;
     top:50%;
-    transform:translateY(-50%);
+
+    transform:
+        translateY(-50%);
+
     color:#718095;
+
     font-size:18px;
 }
 
 .search{
     width:100%;
-    padding:14px 15px 14px 43px;
+
+    padding:
+        14px
+        15px
+        14px
+        43px;
 
     background:#0b1017;
+
     border:1px solid var(--border);
+
     border-radius:12px;
 
     color:#fff;
+
     outline:none;
 
     font-size:13px;
+
     transition:.2s;
 }
 
@@ -223,24 +320,40 @@ h1{
 
 .search:focus{
     border-color:#536174;
-    box-shadow:0 0 0 3px rgba(255,255,255,.035);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(255,255,255,.035);
 }
 
 
-/* ================= TEAMS ================= */
+/* =====================================================
+   TEAMS GRID
+===================================================== */
 
 .teams{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+        repeat(3,1fr);
+
     gap:18px;
 }
 
+
+/* =====================================================
+   TEAM CARD
+===================================================== */
+
 .team-card{
     position:relative;
+
     min-height:195px;
+
     padding:25px;
 
     border:1px solid var(--border);
+
     border-radius:20px;
 
     background:
@@ -251,7 +364,9 @@ h1{
         );
 
     cursor:pointer;
+
     overflow:hidden;
+
     transition:.25s ease;
 }
 
@@ -259,6 +374,7 @@ h1{
     content:"";
 
     position:absolute;
+
     width:200px;
     height:200px;
 
@@ -266,54 +382,74 @@ h1{
     bottom:-110px;
 
     border-radius:50%;
+
     background:#fff;
+
     opacity:.035;
 }
 
 .team-card:hover{
     transform:translateY(-6px);
+
     border-color:#536174;
-    box-shadow:0 25px 65px rgba(0,0,0,.4);
+
+    box-shadow:
+        0 25px 65px
+        rgba(0,0,0,.4);
 }
 
 .team-number{
     color:#657286;
+
     font-size:11px;
+
     font-weight:800;
+
     letter-spacing:2px;
 }
 
 .team-name{
     font-size:27px;
+
     font-weight:950;
+
     margin-top:27px;
 }
 
 .team-regs{
     color:#8995a5;
+
     font-size:12px;
+
     margin-top:7px;
 }
 
 .team-meta{
     display:flex;
+
     align-items:center;
+
     gap:7px;
 
     color:#aeb8c4;
+
     font-size:11px;
+
     margin-top:17px;
 }
 
 .team-dot{
     width:6px;
     height:6px;
+
     border-radius:50%;
+
     background:var(--green);
 }
 
 .team-arrow{
     position:absolute;
+
     right:20px;
     bottom:20px;
 
@@ -321,80 +457,113 @@ h1{
     height:40px;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
     border-radius:50%;
+
     background:#fff;
+
     color:#000;
 
     font-size:19px;
+
     font-weight:bold;
 }
 
 
-/* ================= TEAM PAGE ================= */
+/* =====================================================
+   TEAM PAGE
+===================================================== */
 
 .team-page{
     display:none;
-    animation:fade .3s ease;
+
+    animation:
+        fadeIn
+        .3s
+        ease;
 }
 
 .team-page.active{
     display:block;
 }
 
-@keyframes fade{
+@keyframes fadeIn{
+
     from{
         opacity:0;
-        transform:translateY(10px);
+
+        transform:
+            translateY(10px);
     }
 
     to{
         opacity:1;
-        transform:translateY(0);
+
+        transform:
+            translateY(0);
     }
+
 }
 
 
-/* ================= BACK BUTTON ================= */
+/* =====================================================
+   BACK BUTTON
+===================================================== */
 
 .back-btn{
     display:inline-flex;
+
     align-items:center;
+
     gap:8px;
 
-    padding:11px 16px;
+    padding:
+        11px
+        16px;
+
     margin-bottom:20px;
 
     border:1px solid var(--border);
+
     border-radius:10px;
 
     background:#0b1017;
+
     color:#fff;
 
     cursor:pointer;
 
     font-size:11px;
+
     font-weight:800;
+
     transition:.2s;
 }
 
 .back-btn:hover{
     background:#171e28;
-    border-color:var(--border2);
+
+    border-color:
+        var(--border-light);
 }
 
 
-/* ================= TEAM HEADER ================= */
+/* =====================================================
+   TEAM HEADER
+===================================================== */
 
 .team-header{
     position:relative;
 
     padding:28px;
+
     margin-bottom:20px;
 
     border:1px solid var(--border);
+
     border-radius:20px;
 
     background:
@@ -409,30 +578,43 @@ h1{
 
 .team-header-label{
     color:#778496;
+
     font-size:10px;
+
     font-weight:800;
+
     letter-spacing:3px;
 }
 
 .team-header h2{
     font-size:35px;
+
     margin-top:8px;
+
     font-weight:950;
 }
 
 .president{
     display:inline-flex;
+
     align-items:center;
+
     gap:8px;
 
     margin-top:15px;
-    padding:9px 13px;
+
+    padding:
+        9px
+        13px;
 
     background:#070a0f;
+
     border:1px solid #283240;
+
     border-radius:9px;
 
     color:#aeb8c4;
+
     font-size:12px;
 }
 
@@ -441,33 +623,49 @@ h1{
 }
 
 
-/* ================= TABLE ================= */
+/* =====================================================
+   TABLE
+===================================================== */
 
 .table-box{
     border:1px solid var(--border);
+
     border-radius:18px;
+
     overflow:hidden;
+
     background:#0b0f15;
 }
 
 .table-top{
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
 
-    padding:17px 20px;
-    border-bottom:1px solid var(--border);
+    padding:
+        17px
+        20px;
+
+    border-bottom:
+        1px solid
+        var(--border);
 }
 
 .table-top h3{
     font-size:16px;
+
     font-weight:900;
 }
 
 .player-count{
     color:#7f8b9b;
+
     font-size:10px;
+
     font-weight:800;
+
     letter-spacing:1px;
 }
 
@@ -477,7 +675,9 @@ h1{
 
 table{
     width:100%;
+
     min-width:450px;
+
     border-collapse:collapse;
 }
 
@@ -488,20 +688,30 @@ thead{
 th{
     text-align:left;
 
-    padding:14px 20px;
+    padding:
+        14px
+        20px;
 
     color:#7f8b9b;
 
     font-size:10px;
+
     font-weight:800;
+
     letter-spacing:1.5px;
 
     text-transform:uppercase;
 }
 
 td{
-    padding:15px 20px;
-    border-top:1px solid #1b232e;
+    padding:
+        15px
+        20px;
+
+    border-top:
+        1px solid
+        #1b232e;
+
     font-size:13px;
 }
 
@@ -514,12 +724,17 @@ tbody tr:hover{
 }
 
 
-/* ================= PLAYER ================= */
+/* =====================================================
+   PLAYER
+===================================================== */
 
 .player{
     display:flex;
+
     align-items:center;
+
     gap:12px;
+
     font-weight:800;
 }
 
@@ -530,6 +745,7 @@ tbody tr:hover{
     flex-shrink:0;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
@@ -547,12 +763,15 @@ tbody tr:hover{
     color:#e3e8ee;
 
     font-size:12px;
+
     font-weight:900;
 }
 
 .username{
     overflow:hidden;
+
     text-overflow:ellipsis;
+
     white-space:nowrap;
 }
 
@@ -560,16 +779,21 @@ tbody tr:hover{
     display:inline-flex;
 
     min-width:47px;
+
     justify-content:center;
 
-    padding:6px 10px;
+    padding:
+        6px
+        10px;
 
     border-radius:7px;
 
     background:#161e29;
+
     border:1px solid #283342;
 
     font-size:11px;
+
     font-weight:900;
 }
 
@@ -586,33 +810,46 @@ tbody tr:hover{
 }
 
 
-/* ================= EMPTY ================= */
+/* =====================================================
+   EMPTY SEARCH
+===================================================== */
 
 .empty{
     display:none;
 
     text-align:center;
 
-    padding:40px 20px;
+    padding:
+        40px
+        20px;
 
     color:#8995a5;
 
-    border:1px dashed var(--border);
+    border:
+        1px dashed
+        var(--border);
+
     border-radius:16px;
 }
 
 .empty-icon{
     font-size:28px;
+
     margin-bottom:10px;
 }
 
 
-/* ================= FOOTER ================= */
+/* =====================================================
+   FOOTER
+===================================================== */
 
 footer{
     text-align:center;
 
-    padding:25px 20px 35px;
+    padding:
+        25px
+        20px
+        35px;
 
     color:#626e7e;
 
@@ -623,31 +860,42 @@ footer{
 
 .footer-line{
     width:70px;
+
     height:1px;
 
-    margin:0 auto 15px;
+    margin:
+        0
+        auto
+        15px;
 
     background:#293442;
 }
 
 
-/* ================= MOBILE ================= */
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media(max-width:800px){
 
     .teams{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
     h1{
         font-size:38px;
     }
+
 }
 
 @media(max-width:600px){
 
     header{
-        padding:35px 15px 25px;
+        padding:
+            35px
+            15px
+            25px;
     }
 
     .logo{
@@ -664,7 +912,10 @@ footer{
     }
 
     .container{
-        padding:20px 12px 50px;
+        padding:
+            20px
+            12px
+            50px;
     }
 
     .teams{
@@ -676,7 +927,9 @@ footer{
     }
 
     .stat{
-        padding:15px 12px;
+        padding:
+            15px
+            12px;
     }
 
     .stat-number{
@@ -701,8 +954,11 @@ footer{
 
     th,
     td{
-        padding:13px 12px;
+        padding:
+            13px
+            12px;
     }
+
 }
 
 @media(max-width:380px){
@@ -713,21 +969,29 @@ footer{
 
     .stat{
         display:flex;
+
         justify-content:space-between;
+
         align-items:center;
     }
 
     .stat-number{
         margin-top:0;
     }
+
 }
 
 </style>
+
 </head>
 
 
 <body>
 
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header>
 
@@ -750,22 +1014,31 @@ footer{
 </p>
 
 <div class="status">
-    <span class="status-dot"></span>
-    DATABASE ONLINE
+
+<span class="status-dot"></span>
+
+DATABASE ONLINE
+
 </div>
 
 </header>
 
 
+
 <main class="container">
 
 
-<!-- ================= HOME ================= -->
+<!-- =====================================================
+     HOME
+===================================================== -->
 
 <section id="homePage">
 
 
+<!-- STATS -->
+
 <div class="stats">
+
 
 <div class="stat">
 
@@ -814,8 +1087,12 @@ Active Seasons
 
 </div>
 
+
 </div>
 
+
+
+<!-- TITLE -->
 
 <div class="home-title">
 
@@ -830,7 +1107,8 @@ Registered Teams
 </div>
 
 
-<!-- SEARCH ONLY -->
+
+<!-- SEARCH -->
 
 <div class="search-box">
 
@@ -853,11 +1131,17 @@ Registered Teams
 </div>
 
 
+
+<!-- TEAM CARDS -->
+
 <div
     class="teams"
     id="teamsContainer"
 ></div>
 
+
+
+<!-- EMPTY -->
 
 <div
     class="empty"
@@ -882,12 +1166,16 @@ Try another team or player.
 </section>
 
 
-<!-- ================= TEAM PAGE ================= -->
+
+<!-- =====================================================
+     TEAM PAGE
+===================================================== -->
 
 <section
     id="teamPage"
     class="team-page"
 >
+
 
 <button
     class="back-btn"
@@ -895,6 +1183,7 @@ Try another team or player.
 >
 ← BACK TO TEAMS
 </button>
+
 
 
 <div class="team-header">
@@ -920,7 +1209,9 @@ REGS
 </div>
 
 
+
 <div class="table-box">
+
 
 <div class="table-top">
 
@@ -938,6 +1229,7 @@ Players
 </div>
 
 
+
 <div class="table-scroll">
 
 <table>
@@ -945,14 +1237,24 @@ Players
 <thead>
 
 <tr>
-<th>USER ROBLOX</th>
-<th>SEASON</th>
+
+<th>
+USER ROBLOX
+</th>
+
+<th>
+SEASON
+</th>
+
 </tr>
 
 </thead>
 
-<tbody id="playersTable">
-</tbody>
+
+<tbody
+    id="playersTable"
+></tbody>
+
 
 </table>
 
@@ -966,6 +1268,11 @@ Players
 </main>
 
 
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
 <footer>
 
 <div class="footer-line"></div>
@@ -975,17 +1282,20 @@ FABL • OFFICIAL REGS DATABASE
 </footer>
 
 
+
 <script>
 
 
 /* =====================================================
-   DATABASE
+   FABL REGS DATABASE
 ===================================================== */
 
 const teams = {
 
 
-/* ================= REGS OCS ================= */
+/* =====================================================
+   REGS OCS
+===================================================== */
 
 ocs:{
 
@@ -1035,7 +1345,10 @@ season:1
 },
 
 
-/* ================= REGS ASS ================= */
+
+/* =====================================================
+   REGS ASS
+===================================================== */
 
 ass:{
 
@@ -1080,7 +1393,10 @@ season:1
 },
 
 
-/* ================= REGS HUSA ================= */
+
+/* =====================================================
+   REGS HUSA
+===================================================== */
 
 husa:{
 
@@ -1115,7 +1431,10 @@ season:3
 },
 
 
-/* ================= REGS MAS ================= */
+
+/* =====================================================
+   REGS MAS
+===================================================== */
 
 mas:{
 
@@ -1153,6 +1472,87 @@ season:2
 {
 username:"adamsigmaskibidi12",
 season:1
+}
+
+]
+
+},
+
+
+
+/* =====================================================
+   REGS RCA
+===================================================== */
+
+rca:{
+
+name:"REGS RCA",
+
+president:"ziyad07781",
+
+players:[
+
+{
+username:"Ziyadrca",
+season:1
+},
+
+{
+username:"Tifoly4",
+season:2
+},
+
+{
+username:"Walid_yamal11",
+season:1
+},
+
+{
+username:"Lac yahya",
+season:2
+},
+
+{
+username:"Yahya_moro67",
+season:1
+}
+
+]
+
+},
+
+
+
+/* =====================================================
+   REGS IRT
+===================================================== */
+
+irt:{
+
+name:"REGS IRT",
+
+president:"yousseftem.",
+
+players:[
+
+{
+username:"YAZN_UW",
+season:1
+},
+
+{
+username:"yousseff_uar",
+season:2
+},
+
+{
+username:"poutchare0",
+season:1
+},
+
+{
+username:"Bonoyassine3",
+season:2
 }
 
 ]
@@ -1207,7 +1607,7 @@ document.getElementById("playersTable");
 
 
 /* =====================================================
-   UPDATE STATS
+   STATS
 ===================================================== */
 
 function updateStats(){
@@ -1216,32 +1616,42 @@ function updateStats(){
 
     let seasons = new Set();
 
+
     Object.values(teams).forEach(team=>{
 
         players += team.players.length;
 
+
         team.players.forEach(player=>{
+
             seasons.add(player.season);
+
         });
 
     });
 
+
     totalTeams.textContent =
         Object.keys(teams).length;
+
 
     totalPlayers.textContent =
         players;
 
+
     totalSeasons.textContent =
         seasons.size;
 
+
     teamCounter.textContent =
-        Object.keys(teams).length + " TEAMS";
+        Object.keys(teams).length +
+        " TEAMS";
+
 }
 
 
 /* =====================================================
-   INITIAL
+   AVATAR INITIAL
 ===================================================== */
 
 function getInitial(username){
@@ -1254,7 +1664,7 @@ function getInitial(username){
 
 
 /* =====================================================
-   RENDER TEAMS
+   RENDER TEAM CARDS
 ===================================================== */
 
 function renderTeams(){
@@ -1264,58 +1674,81 @@ function renderTeams(){
         .toLowerCase()
         .trim();
 
+
     teamsContainer.innerHTML = "";
+
 
     let found = 0;
 
+
     Object.entries(teams).forEach(
         ([id,team])=>{
+
 
         const teamMatch =
             team.name
             .toLowerCase()
             .includes(query);
 
+
         const playerMatch =
             team.players.some(
                 player =>
+
                     player.username
                     .toLowerCase()
                     .includes(query)
             );
+
 
         if(
             query &&
             !teamMatch &&
             !playerMatch
         ){
+
             return;
+
         }
 
+
         found++;
+
 
         const card =
             document.createElement("div");
 
+
         card.className =
             "team-card";
 
+
         card.onclick =
-            ()=>openTeam(id);
+            () => openTeam(id);
+
 
         card.innerHTML = `
 
             <div class="team-number">
+
                 ${String(found).padStart(2,"0")}
+
             </div>
+
 
             <div class="team-name">
+
                 ${team.name}
+
             </div>
 
+
             <div class="team-regs">
+
                 Registered Players
+
             </div>
+
 
             <div class="team-meta">
 
@@ -1325,10 +1758,15 @@ function renderTeams(){
 
             </div>
 
+
             <div class="team-arrow">
+
                 →
+
             </div>
+
         `;
+
 
         teamsContainer.appendChild(card);
 
@@ -1339,6 +1777,7 @@ function renderTeams(){
         found === 0
         ? "block"
         : "none";
+
 }
 
 
@@ -1348,30 +1787,48 @@ function renderTeams(){
 
 function openTeam(id){
 
-    const team = teams[id];
+    const team =
+        teams[id];
 
-    if(!team) return;
 
-    homePage.style.display = "none";
+    if(!team){
+        return;
+    }
 
-    teamPage.classList.add("active");
+
+    homePage.style.display =
+        "none";
+
+
+    teamPage.classList.add(
+        "active"
+    );
+
 
     teamTitle.textContent =
         team.name;
 
+
     teamPresident.textContent =
         team.president;
 
+
     playerCount.textContent =
-        team.players.length + " PLAYERS";
+        team.players.length +
+        " PLAYERS";
 
-    playersTable.innerHTML = "";
+
+    playersTable.innerHTML =
+        "";
 
 
-    team.players.forEach(player=>{
+    team.players.forEach(
+        player=>{
+
 
         const row =
             document.createElement("tr");
+
 
         row.innerHTML = `
 
@@ -1380,28 +1837,42 @@ function openTeam(id){
                 <div class="player">
 
                     <div class="avatar">
-                        ${getInitial(player.username)}
+
+                        ${getInitial(
+                            player.username
+                        )}
+
                     </div>
 
+
                     <span class="username">
+
                         ${player.username}
+
                     </span>
 
                 </div>
 
             </td>
 
+
             <td>
 
                 <span
-                    class="season season-${player.season}"
+                    class="
+                        season
+                        season-${player.season}
+                    "
                 >
+
                     ${player.season}
+
                 </span>
 
             </td>
 
         `;
+
 
         playersTable.appendChild(row);
 
@@ -1409,8 +1880,11 @@ function openTeam(id){
 
 
     window.scrollTo({
+
         top:0,
+
         behavior:"smooth"
+
     });
 
 }
@@ -1422,13 +1896,21 @@ function openTeam(id){
 
 function goHome(){
 
-    teamPage.classList.remove("active");
+    teamPage.classList.remove(
+        "active"
+    );
 
-    homePage.style.display = "block";
+
+    homePage.style.display =
+        "block";
+
 
     window.scrollTo({
+
         top:0,
+
         behavior:"smooth"
+
     });
 
 }
@@ -1453,6 +1935,7 @@ updateStats();
 renderTeams();
 
 </script>
+
 
 </body>
     </html>
